@@ -1,0 +1,15 @@
+
+*.vsidx
+*.lock
+.vs/Doppler/v17/.suo
+*.db
+*.ipch
+*.tlog
+*.obj
+*.inl
+*.json
+*.cmake
+*.c
+*.bin
+*.ninja
+*.txt
