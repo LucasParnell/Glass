@@ -4,31 +4,36 @@
 #include "Metadata.h"
 #include "glm/vec3.hpp"
 
+//Using macros because i cant pass types to a template in runtime (obviously)
+#define DPCAST(Type, Args) std::dynamic_pointer_cast<Type>(Args)
+#define GETCOMPONENT(Type, ID) DPCAST(Type, Globals::mComponentManager->GetComponentPtr(ID));
+
 
 uint32_t Doppler::CreateEngineInstance() {
+
+	MLOG(LOG_INFO, "Hello World");
 	
-	//Create entity
+	//Below is just a test of my Entity-Component implementation
+	//Will simplify down the line, want to get things working first.
 
-	for (int i = 0; i < 1000; i++) {
-		Entity Player;
-		Player = Globals::mEntityManager->CreateEntity();
-		//Assign Metadata component to player
-		Component transform = Globals::mComponentManager->RegisterComponent<Transform>();
-		Component metadata = Globals::mComponentManager->RegisterComponent<Metadata>();
+	Entity Player;
+	Player = Globals::mEntityManager->CreateEntity();
+	//Assign Metadata component to player
+	Component transform = Globals::mComponentManager->RegisterComponent<Transform>();
+	Component metadata = Globals::mComponentManager->RegisterComponent<Metadata>();
 
-		Metadata* meta = (Metadata*)Globals::mComponentManager->GetComponentPtr(metadata);
-		Transform* tform = (Transform*)Globals::mComponentManager->GetComponentPtr(transform);
+	//Get the actual component struct from the registered ID
+	std::shared_ptr<Metadata> meta = GETCOMPONENT(Metadata, metadata)
 
-		meta->name = std::string("Player");
-		tform->position = glm::vec3(0, 1, 1);
+	meta.get()->name = std::string("Player");
 
-		Globals::mComponentManager->AddComponent(Player, transform);
-		Globals::mComponentManager->AddComponent(Player, metadata);
+	//Add components to the 'Player'
+	Globals::mComponentManager->AddComponent(Player, transform);
+	Globals::mComponentManager->AddComponent(Player, metadata);
 
-		MLOG(LOG_INFO, "Entity: " + std::to_string(Player) + " created with name: " + meta->name);
-	}
+	//Test of the GetParent function
+	MLOG(LOG_INFO, "'meta' is owned by Entity " + Globals::mComponentManager->GetParent(metadata));
 
-	//Seems to work
-
+	
 	return 0;
 }

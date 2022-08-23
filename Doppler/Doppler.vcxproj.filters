@@ -22,9 +22,6 @@
     <Filter Include="Header Files\Log">
       <UniqueIdentifier>{f815aaa0-b8f8-43af-987a-7e1e93dd4a5c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\test">
-      <UniqueIdentifier>{f7634f05-c666-4054-b096-78f0a1e354cf}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -56,6 +53,9 @@
     </ClInclude>
     <ClInclude Include="Metadata.h">
       <Filter>Header Files\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

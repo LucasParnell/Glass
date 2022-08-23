@@ -1,8 +1,2 @@
-﻿  Doppler.cpp
-C:\Users\Lucas\Music\doppler-git\Doppler\Doppler\ComponentManager.h(18,2): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\Lucas\Music\doppler-git\Doppler\Doppler\Doppler.cpp(16): message : see reference to function template instantiation 'Component ComponentManager::RegisterComponent<Transform>(void)' being compiled
-  EntityManager.cpp
-C:\Users\Lucas\Music\doppler-git\Doppler\Doppler\EntityManager.cpp(6,29): warning C4267: 'initializing': conversion from 'size_t' to 'Entity', possible loss of data
-  Globals.cpp
-  Generating Code...
+﻿     Creating library C:\Users\Lucas\Music\doppler-git\Doppler\x64\Debug\Doppler.lib and object C:\Users\Lucas\Music\doppler-git\Doppler\x64\Debug\Doppler.exp
   Doppler.vcxproj -> C:\Users\Lucas\Music\doppler-git\Doppler\x64\Debug\Doppler.dll
