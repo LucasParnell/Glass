@@ -3,10 +3,21 @@
 #include <iostream>
 #include "EntityManager.h"
 #include "Transform.h"
+#include "glad/glad.h"
+#include "GLFW/glfw3.h"
+#include "Globals.h"
+#include "Metadata.h"
+#include "glm/vec3.hpp"
+
 
 struct Doppler {
 	//Initialisation Things
+	 __declspec(dllexport) uint32_t __cdecl CreateEngineInstance();
+	 __declspec(dllexport) GLFWwindow* __cdecl CreateViewport(int winX, int winY, std::string winTitle);
 
+	 __declspec(dllexport) uint32_t __cdecl BeginEngineLoop();
 
-	uint32_t __declspec(dllexport) __cdecl CreateEngineInstance();
+	 __declspec(dllexport) uint32_t __cdecl Cleanup();
+
+	
 };

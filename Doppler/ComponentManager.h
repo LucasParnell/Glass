@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include "IComponent.h"
+#include "Logging.h"
 
 using Entity = uint32_t;
 using Component = uint32_t;
@@ -18,7 +19,7 @@ struct ComponentManager {
 	
 	template<class iComponent>
 	Component RegisterComponent() {
-		int component = components.size();
+		Component component = (Component)components.size();
 
 		components.push_back(new iComponent());
 		return component;
@@ -46,6 +47,8 @@ struct ComponentManager {
 				return entityComponents[i].first;
 			}
 		}
+		MLOG(LOG_ERROR, "Component does not have an owner.");
+		return 0;
 	}
 
 

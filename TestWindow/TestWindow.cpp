@@ -6,5 +6,7 @@
 int main()
 {
     Doppler engine;
-    int result = engine.CreateEngineInstance();
+    engine.CreateEngineInstance();
+    engine.BeginEngineLoop();
+    engine.Cleanup();
 }
