@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dop name="BoxWorld">
+	<Entities>
+	
+		<Prop name="Crate">
+		
+			<Components>
+			
+				<Mesh at="box.obj"/>
+				
+				<Transform>
+					<PosX>1.0</PosX>
+					<PosY>1.0</PosY>
+					<PosZ>1.0</PosZ>
+				</Transform>
+				
+			</Components>
+		</Prop>
+		
+	</Entities>
+</Dop>
