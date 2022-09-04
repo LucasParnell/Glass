@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Dop name="BoxWorld">
+	<Entities>
+	
+		<Prop name="Crate1">
+		
+			<Components>
+			
+				<Mesh at="box.obj"/>
+				
+				<Transform>
+					<Entry>1.0</Entry>
+					<Entry>1.0</Entry>
+					<Entry>1.0</Entry>
+				</Transform>
+				
+			</Components>
+		</Prop>
+		
+		<Prop name="Crate2">
+		
+			<Components>
+			
+				<Mesh at="box.obj"/>
+				
+				<Transform>
+					<Entry>2.0</Entry>
+					<Entry>1.0</Entry>
+					<Entry>1.0</Entry>
+				</Transform>
+				
+			</Components>
+		</Prop>
+		
+	</Entities>
+</Dop>

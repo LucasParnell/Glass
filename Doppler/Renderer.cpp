@@ -1,5 +1,6 @@
 #include "Renderer.h"
 #include "Globals.h"
+#include "MeshLoader.h"
 
 float vertices[] = {
 	 0.5f,  0.5f, 0.0f,  // top right
@@ -12,6 +13,9 @@ unsigned int indices[] = {  // note that we start from 0!
 	1, 2, 3    // second triangle
 };
 Shader* Renderer::MakeDebugTriangle() {
+
+	MeshLoader ml;
+	ml.CreateMesh("");
 
 	auto shader = new Shader();
 

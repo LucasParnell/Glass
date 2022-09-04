@@ -31,6 +31,9 @@
     <Filter Include="Source Files\Render">
       <UniqueIdentifier>{92f5694a-2c40-41ff-8a2e-9a8c47aad582}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Files">
+      <UniqueIdentifier>{5bc9b749-16d8-451c-ac76-f17894e666c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -69,6 +72,12 @@
     <ClInclude Include="Shader.h">
       <Filter>Header Files\Render</Filter>
     </ClInclude>
+    <ClInclude Include="MeshLoader.h">
+      <Filter>Header Files\Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Mesh.h">
+      <Filter>Header Files\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -94,6 +103,9 @@
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>Source Files\Render</Filter>
+    </ClCompile>
+    <ClCompile Include="MeshLoader.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
