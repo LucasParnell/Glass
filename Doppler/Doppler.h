@@ -15,6 +15,10 @@ struct Doppler {
 	 __declspec(dllexport) uint32_t __cdecl CreateEngineInstance();
 	 __declspec(dllexport) GLFWwindow* __cdecl CreateViewport(int winX, int winY, std::string winTitle);
 
+	 __declspec(dllexport) EntityManager* __cdecl GetEntityManager();
+	 __declspec(dllexport) ComponentManager* __cdecl GetComponentManager();
+	 __declspec(dllexport) Renderer* __cdecl GetRenderer();
+
 	 __declspec(dllexport) uint32_t __cdecl BeginEngineLoop();
 
 	 __declspec(dllexport) uint32_t __cdecl Cleanup();
