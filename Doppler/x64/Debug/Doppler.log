@@ -1,1 +1,10 @@
-﻿  Doppler.vcxproj -> C:\Users\Lucas\Music\doppler-git\Doppler\x64\Debug\Doppler.dll
+﻿  Doppler.cpp
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(66,37): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(66,33): warning C4244: 'initializing': conversion from 'double' to 'const float', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(156,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(157,17): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(161,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(162,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(163,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\Doppler\Doppler.cpp(164,13): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  Doppler.vcxproj -> C:\Users\lucas\OneDrive\Desktop\CatSkateboarding\Doppler-main\x64\Debug\Doppler.dll

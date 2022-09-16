@@ -11,8 +11,12 @@ struct EntityManager {
 	//Array of IDs
 	std::vector<Entity> entities;
 
+	EntityManager() {
+		entities.reserve(2056);
+	}
+
 	//Functions
-	Entity CreateEntity();
+	__declspec(dllexport) Entity __cdecl CreateEntity();
 
 
 
