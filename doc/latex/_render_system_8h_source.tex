@@ -1,0 +1,56 @@
+\hypertarget{_render_system_8h_source}{}\doxysection{Render\+System.\+h}
+\label{_render_system_8h_source}\index{lib/Rendering/RenderSystem.h@{lib/Rendering/RenderSystem.h}}
+\mbox{\hyperlink{_render_system_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}glad/glad.h"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}glm/glm.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}glm/gtc/matrix\_transform.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_shader_8h}{Components/Shader.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_component_8h}{Components/IComponent.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00009}00009 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_8h}{Components/Texture.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_8h}{Components/Mesh.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Components/Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_loader_8h}{Loaders/MeshLoader.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_window_8h}{Base/Window.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_manager_8h}{Managers/EntityManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_component_manager_8h}{Managers/ComponentManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00017}\mbox{\hyperlink{namespace_rendering}{00017}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_rendering}{Rendering}} \{}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00018}\mbox{\hyperlink{class_rendering_1_1_render_system}{00018}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_rendering_1_1_render_system}{RenderSystem}} \{}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00019}00019     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00020}\mbox{\hyperlink{class_rendering_1_1_render_system_a20496a8f52c4eb755d4bfcaba2e98e1c}{00020}}         GLASS\_EXPORT \mbox{\hyperlink{class_rendering_1_1_render_system_a20496a8f52c4eb755d4bfcaba2e98e1c}{RenderSystem}}();}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00022}00022         GLASS\_EXPORT \mbox{\hyperlink{struct_components_1_1_shader}{Components::Shader}} \mbox{\hyperlink{class_rendering_1_1_render_system_a9d2bd5e88b9dc97e07fb45697e61e8c1}{LoadObject}}(\mbox{\hyperlink{struct_components_1_1_mesh}{Components::Mesh}} *meshToLoad, std::string shaderName);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00024}00024         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_rendering_1_1_render_system_a446ccbacc44b50e6f73cbd5b4c91dc3b}{Render}}(\mbox{\hyperlink{class_base_1_1_window}{Base::Window}} *pWindow, \mbox{\hyperlink{class_managers_1_1_entity_manager}{Managers::EntityManager}} *pEntityManager, \mbox{\hyperlink{struct_managers_1_1_component_manager}{Managers::ComponentManager}} *pComponentManager);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00026}00026     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00027}00027         \mbox{\hyperlink{struct_components_1_1_mesh}{Components::Mesh}} *mesh;}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00028}00028         \mbox{\hyperlink{class_base_1_1_window}{Base::Window}} *window;}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00030}00030         \textcolor{comment}{//Drawing code}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00031}00031         \textcolor{comment}{//TODO(Rewrite most of this)}}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00032}00032         \textcolor{keyword}{static} \textcolor{keywordtype}{void} DrawMesh(\textcolor{keyword}{const} std::map<int, GLuint> \&vbos,}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00033}00033                              tinygltf::Model \&model, tinygltf::Mesh \&mesh);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00035}00035         \textcolor{keyword}{static} \textcolor{keywordtype}{void} DrawModel(\textcolor{keyword}{const} std::pair<GLuint, std::map<int, GLuint>> \&vaoAndEbos,}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00036}00036                               tinygltf::Model \&model);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00038}00038         \textcolor{keyword}{static} \textcolor{keywordtype}{void} DrawModelNodes(\textcolor{keyword}{const} std::pair<GLuint, std::map<int, GLuint>> \&vaoAndEbos,}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00039}00039                                    tinygltf::Model \&model, tinygltf::Node \&node);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00040}00040 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00042}00042         std::vector<std::pair<std::string, uint32\_t>> loadedShaders;}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00044}00044         \textcolor{keywordtype}{void} ParseCamera(uint32\_t shaderID);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00046}00046         \textcolor{keyword}{static} \textcolor{keywordtype}{void} SetMat4(\textcolor{keyword}{const} std::string \&uniform, glm::mat4 matrix, uint32\_t shaderID);}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00048}00048 }
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00049}00049     \};}
+\DoxyCodeLine{\Hypertarget{_render_system_8h_source_l00050}00050 \}}
+
+\end{DoxyCode}

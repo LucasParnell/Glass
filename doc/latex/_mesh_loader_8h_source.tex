@@ -1,0 +1,36 @@
+\hypertarget{_mesh_loader_8h_source}{}\doxysection{Mesh\+Loader.\+h}
+\label{_mesh_loader_8h_source}\index{lib/Loaders/MeshLoader.h@{lib/Loaders/MeshLoader.h}}
+\mbox{\hyperlink{_mesh_loader_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00008}00008 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00010}00010 \textcolor{preprocessor}{\#include "{}glass\_export.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}glad/glad.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_8h}{Components/Mesh.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_logging_8h}{Base/Logging.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00016}\mbox{\hyperlink{namespace_loaders}{00016}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_loaders}{Loaders}} \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00017}\mbox{\hyperlink{class_loaders_1_1_mesh_loader}{00017}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_loaders_1_1_mesh_loader}{MeshLoader}} \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00018}00018     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00019}00019         GLASS\_EXPORT \mbox{\hyperlink{struct_components_1_1_mesh}{Components::Mesh}} \mbox{\hyperlink{class_loaders_1_1_mesh_loader_ac848c11d6a23eb6e8fdf797b12144ab0}{meCreateMesh}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *meshDir);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00021}00021     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00022}00022         \textcolor{keyword}{static} \textcolor{keywordtype}{bool} bLoadModel(tinygltf::Model \&model, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00024}00024         \textcolor{keywordtype}{void} bindModelNodes(std::map<int, GLuint> \&vbos, tinygltf::Model \&model, tinygltf::Node \&node);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00026}00026         std::pair<GLuint, std::map<int, GLuint>> bindModel(tinygltf::Model \&model);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00028}00028         \textcolor{keyword}{static} \textcolor{keywordtype}{void} bindMesh(std::map<int, GLuint> \&vbos, tinygltf::Model \&model, tinygltf::Mesh \&mesh);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00029}00029     \};}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8h_source_l00030}00030 \}}
+
+\end{DoxyCode}

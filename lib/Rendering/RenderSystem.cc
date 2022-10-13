@@ -1,43 +1,55 @@
 #include "RenderSystem.h"
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
-std::vector<std::pair<std::string, uint32_t>> RenderSystem::loadedShaders;
 
-RenderSystem::RenderSystem() {}
+using namespace Rendering;
 
-Shader RenderSystem::LoadObject(Mesh *meshToLoad, std::string shaderName) {
+RenderSystem::RenderSystem() = default;
+
+void RenderSystem::SetWindow(Base::Window *window){
+    this->window = window;
+}
+
+Components::Shader RenderSystem::LoadObject(Components::Mesh *meshToLoad, std::string shaderName) {
 
     mesh = meshToLoad;
 
-    auto shader = new Shader();
+    auto shader = new Components::Shader();
 
     int loadedId = -1;
 
-    for (int i = 0; i < loadedShaders.size(); i++) {
-        if (loadedShaders[i].first == shaderName)
-            loadedId = loadedShaders[i].second;
+    for (auto &loadedShader: loadedShaders) {
+        if (loadedShader.first == shaderName)
+            loadedId = (int) loadedShader.second;
     }
 
     if (loadedId == -1) {
         std::ifstream frag("CoolWorld/" + shaderName + ".frag");
-        std::string fragTmp((std::istreambuf_iterator<char>(frag)),
-                            (std::istreambuf_iterator<char>()));
+        std::stringstream fragBuffer;
+        fragBuffer << frag.rdbuf();
+
+        //TODO(Split filename into mountpoint and directory)
+        std::string outputBuffer;
+        VFS::ReadToString(&outputBuffer, "GamePak:\\textures\\rock.png");
 
         std::ifstream vert("CoolWorld/" + shaderName + ".vert");
-        std::string vertTmp((std::istreambuf_iterator<char>(vert)),
-                            (std::istreambuf_iterator<char>()));
+        std::stringstream vertBuffer;
+        vertBuffer << vert.rdbuf();
 
-        const char *vertStr = vertTmp.c_str();
-        const char *fragStr = fragTmp.c_str();
+        auto a = vertBuffer.str();
+        auto b = fragBuffer.str();
+
+        const char *vertStr = a.c_str();
+        const char *fragStr = b.c_str();
 
         unsigned int vertexShader;
         vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertStr, NULL);
+        glShaderSource(vertexShader, 1, &vertStr, nullptr);
         glCompileShader(vertexShader);
 
         unsigned int fragmentShader;
         fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragStr, NULL);
+        glShaderSource(fragmentShader, 1, &fragStr, nullptr);
         glCompileShader(fragmentShader);
 
 
@@ -53,7 +65,7 @@ Shader RenderSystem::LoadObject(Mesh *meshToLoad, std::string shaderName) {
 
         if (!success) {
             std::vector<GLchar> errorLog(512);
-            glGetProgramInfoLog(shader->ID, 512, NULL, &errorLog[0]);
+            glGetProgramInfoLog(shader->ID, 512, nullptr, &errorLog[0]);
             MLOG(LOG_ERROR, "\n" + std::string(&errorLog[0]));
         }
 
@@ -61,7 +73,7 @@ Shader RenderSystem::LoadObject(Mesh *meshToLoad, std::string shaderName) {
         glDeleteShader(vertexShader);
         glDeleteShader(fragmentShader);
 
-        loadedShaders.push_back(std::pair<std::string, uint32_t>(shaderName, shader->ID));
+        loadedShaders.emplace_back(shaderName, shader->ID);
     } else {
         shader->ID = loadedId;
     }
@@ -74,92 +86,93 @@ Shader RenderSystem::LoadObject(Mesh *meshToLoad, std::string shaderName) {
 
 void RenderSystem::ParseCamera(uint32_t shaderID) {
     //TODO(ADD FUNCTION TO PASS IN WINDOW)
-    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) (1920) / (float) (1080), 0.1f,
+    glm::mat4 projection = glm::perspective(glm::radians(45.0f), (float) (window->width) / (float) (window->height),
+                                            0.1f,
                                             100.0f);
     SetMat4("projection", projection, shaderID);
 
-    Camera *mainCam = Camera::pGetMainCamera();
+    Components::Camera *mainCam = Components::Camera::pGetMainCamera();
     SetMat4("view", mainCam->m4GetView(), shaderID);
 
 
 }
 
 
-void drawMesh(const std::map<int, GLuint> &vbos,
-              tinygltf::Model &model, tinygltf::Mesh &mesh) {
-    for (size_t i = 0; i < mesh.primitives.size(); ++i) {
-        tinygltf::Primitive primitive = mesh.primitives[i];
+void RenderSystem::DrawMesh(const std::map<int, GLuint> &vbos,
+                            tinygltf::Model &model, tinygltf::Mesh &mesh) {
+    for (const auto &primitive: mesh.primitives) {
         tinygltf::Accessor indexAccessor = model.accessors[primitive.indices];
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbos.at(indexAccessor.bufferView));
 
-        glDrawElements(primitive.mode, indexAccessor.count,
+        glDrawElements(primitive.mode, (int) indexAccessor.count,
                        indexAccessor.componentType,
                        BUFFER_OFFSET(indexAccessor.byteOffset));
     }
 }
 
-// recursively draw node and children nodes of model
-void drawModelNodes(const std::pair<GLuint, std::map<int, GLuint>> &vaoAndEbos,
-                    tinygltf::Model &model, tinygltf::Node &node) {
+// recursively draw node and children nodes of model (Change this)
+void RenderSystem::DrawModelNodes(const std::pair<GLuint, std::map<int, GLuint>> &vaoAndEbos,
+                                  tinygltf::Model &model, tinygltf::Node &node) {
     if ((node.mesh >= 0) && (node.mesh < model.meshes.size())) {
-        drawMesh(vaoAndEbos.second, model, model.meshes[node.mesh]);
+        DrawMesh(vaoAndEbos.second, model, model.meshes[node.mesh]);
     }
-    for (size_t i = 0; i < node.children.size(); i++) {
-        drawModelNodes(vaoAndEbos, model, model.nodes[node.children[i]]);
+    for (int i: node.children) {
+        RenderSystem::DrawModelNodes(vaoAndEbos, model, model.nodes[i]);
     }
 }
 
-void drawModel(const std::pair<GLuint, std::map<int, GLuint>> &vaoAndEbos,
-               tinygltf::Model &model) {
+void RenderSystem::DrawModel(const std::pair<GLuint, std::map<int, GLuint>> &vaoAndEbos,
+                             tinygltf::Model &model) {
     glBindVertexArray(vaoAndEbos.first);
 
     const tinygltf::Scene &scene = model.scenes[model.defaultScene];
-    for (size_t i = 0; i < scene.nodes.size(); ++i) {
-        drawModelNodes(vaoAndEbos, model, model.nodes[scene.nodes[i]]);
+    for (int node: scene.nodes) {
+        DrawModelNodes(vaoAndEbos, model, model.nodes[node]);
     }
 
     glBindVertexArray(0);
 }
 
 
-void RenderSystem::Render(Window *window, EntityManager *entityManager, ComponentManager *componentManager) {
+void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntityManager, Managers::ComponentManager *pComponentManager) {
     //Make this better please
-    this->window = window;
+    this->window = pWindow;
 
-    for (int i = 0; i < entityManager->entities.size(); i++) {
-        auto entity = entityManager->entities[i];
-        auto components = &componentManager->entityComponents[entity];
+    for (const Entity &entity: pEntityManager->entities) {
+        auto components = &pComponentManager->entityComponents[entity];
 
         glm::mat4 model = glm::mat4(1.0f);
-        Shader *shader = nullptr;
+        Components::Shader *shader = nullptr;
         bool textureLoaded = false;
         GLuint texture;
-        for (int x = 0; x < components->size(); x++) {
-            auto lComponent = componentManager->GetComponentPtr((Component) components->at(x));
-            switch (lComponent->componentType) {
-                case (IComponent::TRANSFORM): {
-                    Transform *transform = (Transform *) lComponent;
-                    glm::translate(model, transform->position); //<< fix this too
-                }
-                    break;
-                case (IComponent::SHADER): {
-                    shader = (Shader *) lComponent;
+
+        for(auto& p_component : pComponentManager->components){
+            //Could replace these with integers and use switch
+            auto name = p_component->GetTypeInfo().Name();
+            switch(Base::Utils::hash(name.c_str(), name.size())){
+                case (Base::Utils::hash("Components::Transform", 21)): {
+                    auto *transform = (Components::Transform *) p_component;
+                    glm::translate(model, transform->position);
                     break;
                 }
-                case (IComponent::TEXTURE): {
-                    auto texobj = (Texture *) lComponent;
-                    if (texobj->loaded) {
+                case (Base::Utils::hash("Components::Shader", 18)): {
+                    shader = (Components::Shader *) p_component;
+                    break;
+                }
+                case (Base::Utils::hash("Components::Texture", 19)): {
+                    auto *pTexture = (Components::Texture *) p_component;
+                    if (pTexture->loaded) {
                         textureLoaded = true;
-                        texture = texobj->ID;
+                        texture = pTexture->ID;
                     }
                     break;
                 }
-                default:
-                    continue;
-                    break;
             }
+
+
         }
+
         if (!shader) {
             continue;
         }
@@ -174,11 +187,16 @@ void RenderSystem::Render(Window *window, EntityManager *entityManager, Componen
         ParseCamera(shader->ID);
         SetMat4("model", model, shader->ID);
 
-        drawModel(mesh->vaoAndEbos, mesh->model);
+        DrawModel(mesh->vaoAndEbos, mesh->model);
         glBindVertexArray(0);
 
 
     }
 
 
+}
+
+void RenderSystem::SetMat4(const std::string &uniform, glm::mat4 matrix, uint32_t shaderID) {
+    auto location = glGetUniformLocation(shaderID, uniform.c_str());
+    glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]);
 }

@@ -1,0 +1,147 @@
+\hypertarget{_mesh_loader_8cc_source}{}\doxysection{Mesh\+Loader.\+cc}
+\label{_mesh_loader_8cc_source}\index{lib/Loaders/MeshLoader.cc@{lib/Loaders/MeshLoader.cc}}
+\mbox{\hyperlink{_mesh_loader_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_mesh_loader_8h}{MeshLoader.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00003}\mbox{\hyperlink{_mesh_loader_8cc_a063a3af905ecefe83d76ca3f0fe0653e}{00003}} \textcolor{preprocessor}{\#define BUFFER\_OFFSET(i) ((char *)NULL + (i))}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00005}00005 \textcolor{keyword}{using }\mbox{\hyperlink{class_loaders_1_1_mesh_loader}{Loaders::MeshLoader}};}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00007}\mbox{\hyperlink{class_loaders_1_1_mesh_loader_ac848c11d6a23eb6e8fdf797b12144ab0}{00007}} \mbox{\hyperlink{struct_components_1_1_mesh}{Components::Mesh}} \mbox{\hyperlink{class_loaders_1_1_mesh_loader_ac848c11d6a23eb6e8fdf797b12144ab0}{MeshLoader::meCreateMesh}}(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *meshDir) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00009}00009     std::string inputFile = \textcolor{stringliteral}{"{}CoolWorld/"{}} + std::string(meshDir) + \textcolor{stringliteral}{"{}.glb"{}};}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00011}00011     \textcolor{keyword}{auto} baseMesh = \textcolor{keyword}{new} \mbox{\hyperlink{struct_components_1_1_mesh}{Components::Mesh}}();}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00013}00013     tinygltf::Model model;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00014}00014 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00015}00015     bLoadModel(model, inputFile.c\_str());}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00017}00017     std::pair<GLuint, std::map<int, GLuint>> vaoAndEbos = bindModel(model);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00019}00019     baseMesh-\/>vaoAndEbos = vaoAndEbos;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00020}00020     baseMesh-\/>model = model;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00022}00022     \textcolor{keywordflow}{return} *baseMesh;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00024}00024 \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00026}00026 \textcolor{keywordtype}{bool} MeshLoader::bLoadModel(tinygltf::Model \&model, \textcolor{keyword}{const} \textcolor{keywordtype}{char} *filename) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00027}00027     tinygltf::TinyGLTF loader;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00028}00028     std::string err;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00029}00029     std::string warn;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00031}00031     \textcolor{keywordtype}{bool} res = loader.LoadBinaryFromFile(\&model, \&err, \&warn, filename);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00032}00032     \textcolor{keywordflow}{if} (!warn.empty()) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00033}00033         std::cout << \textcolor{stringliteral}{"{}WARN: "{}} << warn << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00034}00034     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00036}00036     \textcolor{keywordflow}{if} (!err.empty()) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00037}00037         std::cout << \textcolor{stringliteral}{"{}ERR: "{}} << err << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00038}00038     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00040}00040     \textcolor{keywordflow}{if} (!res)}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00041}00041         std::cout << \textcolor{stringliteral}{"{}Failed to load glTF: "{}} << filename << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00042}00042     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00043}00043         std::cout << \textcolor{stringliteral}{"{}Loaded glTF: "{}} << filename << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00044}00044 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00045}00045     \textcolor{keywordflow}{return} res;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00046}00046 \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00048}00048 \textcolor{keywordtype}{void} MeshLoader::bindMesh(std::map<int, GLuint> \&vbos, tinygltf::Model \&model, tinygltf::Mesh \&mesh) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00049}00049     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{size\_t} i = 0; i < model.bufferViews.size(); ++i) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00050}00050         \textcolor{keyword}{const} tinygltf::BufferView \&bufferView = model.bufferViews[i];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00051}00051         \textcolor{keywordflow}{if} (bufferView.target == 0) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00052}00052             \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}{LOG\_WARN}}, \textcolor{stringliteral}{"{}bufferView.target is zero"{}});}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00053}00053             \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00056}00056 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00057}00057         \textcolor{keyword}{const} tinygltf::Buffer \&buffer = model.buffers[bufferView.buffer];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00058}00058         std::cout << \textcolor{stringliteral}{"{}bufferview.target "{}} << bufferView.target << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00060}00060         GLuint vbo;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00061}00061         glGenBuffers(1, \&vbo);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00062}00062         vbos[i] = vbo;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00063}00063         glBindBuffer(bufferView.target, vbo);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00065}00065         std::cout << \textcolor{stringliteral}{"{}buffer.data.size = "{}} << buffer.data.size()}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00066}00066                   << \textcolor{stringliteral}{"{}, bufferview.byteOffset = "{}} << bufferView.byteOffset}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00067}00067                   << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00068}00068 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00069}00069         glBufferData(bufferView.target, bufferView.byteLength,}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00070}00070                      \&buffer.data.at(0) + bufferView.byteOffset, GL\_STATIC\_DRAW);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00071}00071     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00072}00072 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00073}00073     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} primitive: mesh.primitives) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00074}00074         tinygltf::Accessor indexAccessor = model.accessors[primitive.indices];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00075}00075 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00076}00076         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} \&attrib: primitive.attributes) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00077}00077             tinygltf::Accessor accessor = model.accessors[attrib.second];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00078}00078             \textcolor{keywordtype}{int} byteStride =}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00079}00079                     accessor.ByteStride(model.bufferViews[accessor.bufferView]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00080}00080             glBindBuffer(GL\_ARRAY\_BUFFER, vbos[accessor.bufferView]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00081}00081 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00082}00082             \textcolor{keywordtype}{int} size = 1;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00083}00083             \textcolor{keywordflow}{if} (accessor.type != TINYGLTF\_TYPE\_SCALAR) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00084}00084                 size = accessor.type;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00085}00085             \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00087}00087             \textcolor{keywordtype}{int} vaa = -\/1;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00088}00088             \textcolor{keywordflow}{if} (attrib.first == \textcolor{stringliteral}{"{}POSITION"{}}) vaa = 0;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00089}00089             \textcolor{keywordflow}{if} (attrib.first == \textcolor{stringliteral}{"{}NORMAL"{}}) vaa = 1;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00090}00090             \textcolor{keywordflow}{if} (attrib.first == \textcolor{stringliteral}{"{}TEXCOORD\_0"{}}) vaa = 2;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00091}00091             \textcolor{keywordflow}{if} (vaa > -\/1) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00092}00092                 glEnableVertexAttribArray(vaa);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00093}00093                 glVertexAttribPointer(vaa, size, accessor.componentType,}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00094}00094                                       accessor.normalized ? GL\_TRUE : GL\_FALSE,}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00095}00095                                       byteStride, \mbox{\hyperlink{_mesh_loader_8cc_a063a3af905ecefe83d76ca3f0fe0653e}{BUFFER\_OFFSET}}(accessor.byteOffset));}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00096}00096             \} \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00097}00097                 std::cout << \textcolor{stringliteral}{"{}vaa missing: "{}} << attrib.first << std::endl;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00098}00098         \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00099}00099     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00100}00100 \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00101}00101 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00102}00102 \textcolor{comment}{// bind models}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00103}00103 \textcolor{comment}{//TODO(REWRITE THIS, RECURSION IS BAD)}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00104}00104 \textcolor{keywordtype}{void} MeshLoader::bindModelNodes(std::map<int, GLuint> \&vbos, tinygltf::Model \&model,}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00105}00105                                 tinygltf::Node \&node) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00106}00106     \textcolor{keywordflow}{if} ((node.mesh >= 0) \&\& (node.mesh < model.meshes.size())) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00107}00107         bindMesh(vbos, model, model.meshes[node.mesh]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00108}00108     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00109}00109 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00110}00110     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i: node.children) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00111}00111         assert((node.children[i] >= 0) \&\& (node.children[i] < model.nodes.size()));}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00112}00112         bindModelNodes(vbos, model, model.nodes[i]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00113}00113     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00114}00114 \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00115}00115 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00116}00116 std::pair<GLuint, std::map<int, GLuint>> MeshLoader::bindModel(tinygltf::Model \&model) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00117}00117     std::map<int, GLuint> vbos;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00118}00118     GLuint vao;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00119}00119     glGenVertexArrays(1, \&vao);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00120}00120     glBindVertexArray(vao);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00121}00121 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00122}00122     \textcolor{keyword}{const} tinygltf::Scene \&scene = model.scenes[model.defaultScene];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00123}00123     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} node: scene.nodes) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00124}00124         bindModelNodes(vbos, model, model.nodes[node]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00125}00125     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00126}00126 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00127}00127 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00128}00128     glBindVertexArray(0);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00129}00129     \textcolor{comment}{// cleanup vbos but do not delete index buffers yet}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00130}00130     \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} it = vbos.cbegin(); it != vbos.cend();) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00131}00131         tinygltf::BufferView bufferView = model.bufferViews[it-\/>first];}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00132}00132         \textcolor{keywordflow}{if} (bufferView.target != GL\_ELEMENT\_ARRAY\_BUFFER) \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00133}00133             glDeleteBuffers(1, \&vbos[it-\/>first]);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00134}00134             vbos.erase(it++);}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00135}00135         \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00136}00136             ++it;}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00137}00137         \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00138}00138     \}}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00140}00140     \textcolor{keywordflow}{return} \{vao, vbos\};}
+\DoxyCodeLine{\Hypertarget{_mesh_loader_8cc_source_l00141}00141 \}}
+
+\end{DoxyCode}

@@ -15,35 +15,38 @@
 #include "Managers/EntityManager.h"
 #include "Managers/ComponentManager.h"
 #include "Rendering/RenderSystem.h"
-#include "Debug/Logging.h"
+#include "Logging.h"
 
-class Glass {
-public:
+namespace Base {
 
-    GLASS_EXPORT Glass();
+    class Glass {
+    public:
 
-    GLASS_EXPORT ~Glass();
+        GLASS_EXPORT Glass();
 
-    //Create an OpenGL context with given parameters
-    GLASS_EXPORT Result iCreateWindow(Window &window);
+        GLASS_EXPORT ~Glass();
 
-    GLASS_EXPORT Result iBeginEngineLoop();
+        //Create an OpenGL context with given parameters
+        GLASS_EXPORT Result iCreateWindow(Window &window);
 
-    GLASS_EXPORT ComponentManager * pGetComponentManager();
+        GLASS_EXPORT Result iBeginEngineLoop();
 
-    GLASS_EXPORT EntityManager * pGetEntityManager();
+        GLASS_EXPORT Result iSerialiseEntity(const Entity &entity);
 
-    GLASS_EXPORT RenderSystem * pGetRenderSystem();
+        GLASS_EXPORT Managers::ComponentManager *pGetComponentManager();
 
-    GLASS_EXPORT Window * pGetWindow();
+        GLASS_EXPORT Managers::EntityManager *pGetEntityManager();
 
-private:
+        GLASS_EXPORT Rendering::RenderSystem *pGetRenderSystem();
 
-    Result iCleanup();
+    private:
 
-    ComponentManager mComponentManager;
-    EntityManager mEntityManager;
-    RenderSystem mRenderSystem;
-    Window mWindow;
+        Result iCleanup();
 
-};
+        Managers::ComponentManager mComponentManager;
+        Managers::EntityManager mEntityManager;
+        Rendering::RenderSystem mRenderSystem;
+        Window mWindow{};
+
+    };
+}

@@ -1,0 +1,85 @@
+\hypertarget{_logging_8h_source}{}\doxysection{Logging.\+h}
+\label{_logging_8h_source}\index{lib/Base/Logging.h@{lib/Base/Logging.h}}
+\mbox{\hyperlink{_logging_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <chrono>}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <ctime>}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00007}00007 \textcolor{preprocessor}{\#include <windows.h>}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00010}\mbox{\hyperlink{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{00010}} \textcolor{preprocessor}{\#define \_\_FILENAME\_\_ (strrchr(\_\_FILE\_\_, '\(\backslash\)\(\backslash\)') ? strrchr(\_\_FILE\_\_, '\(\backslash\)\(\backslash\)') + 1 : \_\_FILE\_\_)}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00011}00011 \textcolor{preprocessor}{\#ifdef \_DEBUG}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00012}00012 \textcolor{preprocessor}{\#define MLOG(LOGTYPE, MSG) Logging::Log(\_\_LINE\_\_, \_\_FILENAME\_\_ ,\_\_FUNCTION\_\_, LOGTYPE, MSG)}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00013}00013 \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00014}\mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{00014}} \textcolor{preprocessor}{\#define MLOG(LOGTYPE, MSG) Base::Logging::Log(\_\_LINE\_\_, \_\_FILENAME\_\_ ,\_\_FUNCTION\_\_, LOGTYPE, MSG); }\textcolor{comment}{//Will change this after finished work}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00015}00015 \textcolor{preprocessor}{\#endif}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00016}00016 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00017}\mbox{\hyperlink{_logging_8h_ab43d256cd2afa78a9fc11d169155c967}{00017}} \textcolor{preprocessor}{\#define COL\_BLUE 9}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00018}\mbox{\hyperlink{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}{00018}} \textcolor{preprocessor}{\#define COL\_CYAN 11}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00019}\mbox{\hyperlink{_logging_8h_a87d30d2657caae38d671f052cb9cc0e7}{00019}} \textcolor{preprocessor}{\#define COL\_RED 12}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00020}\mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{00020}} \textcolor{preprocessor}{\#define COL\_WHITE 7}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00021}\mbox{\hyperlink{_logging_8h_a079308d2e42e400c3a98ea289db777d4}{00021}} \textcolor{preprocessor}{\#define COL\_ORANGE 14}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00024}\mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{00024}} \textcolor{preprocessor}{\#define LOG\_ERROR 0}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00025}\mbox{\hyperlink{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}{00025}} \textcolor{preprocessor}{\#define LOG\_WARN 1}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00026}\mbox{\hyperlink{_logging_8h_aeb4f36db01bd128c7afeac5889dac311}{00026}} \textcolor{preprocessor}{\#define LOG\_INFO 2}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00027}00027 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00029}\mbox{\hyperlink{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}{00029}} \textcolor{keyword}{using }\mbox{\hyperlink{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}{LogType}} = uint8\_t;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00031}00031 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_base}{Base}} \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00032}\mbox{\hyperlink{struct_base_1_1_logging}{00032}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_base_1_1_logging}{Logging}} \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00033}00033         \textcolor{keyword}{static} \textcolor{keywordtype}{void}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00034}\mbox{\hyperlink{struct_base_1_1_logging_a1cd48fedf3830c141054bbcea87c0960}{00034}}         \mbox{\hyperlink{struct_base_1_1_logging_a1cd48fedf3830c141054bbcea87c0960}{Log}}(uint32\_t line, \textcolor{keyword}{const} std::string \&filename, \textcolor{keyword}{const} std::string \&function, \mbox{\hyperlink{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}{LogType}} level,}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00035}00035             \textcolor{keyword}{const} std::string \&msg) \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00036}00036             time\_t now = time(0);}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00037}00037             \textcolor{keyword}{struct }tm tm\{\};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00038}00038             \textcolor{keywordtype}{char} buf[80];}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00039}00039             tm = *localtime(\&now);}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00040}00040             strftime(buf, \textcolor{keyword}{sizeof}(buf), \textcolor{stringliteral}{"{}\%X | "{}}, \&tm);}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00042}00042             HANDLE hConsole = GetStdHandle(STD\_OUTPUT\_HANDLE);}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00044}00044             \textcolor{keyword}{auto} CurrentColour = \mbox{\hyperlink{_logging_8h_ab43d256cd2afa78a9fc11d169155c967}{COL\_BLUE}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00046}00046             \textcolor{keywordflow}{switch} (level) \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00047}00047                 \textcolor{keywordflow}{case} \mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\_ERROR}}: \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00048}00048                     CurrentColour = \mbox{\hyperlink{_logging_8h_a87d30d2657caae38d671f052cb9cc0e7}{COL\_RED}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00049}00049                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00050}00050                 \}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00051}00051                 \textcolor{keywordflow}{case} \mbox{\hyperlink{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}{LOG\_WARN}}: \{}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00052}00052                     CurrentColour = \mbox{\hyperlink{_logging_8h_a079308d2e42e400c3a98ea289db777d4}{COL\_ORANGE}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00053}00053                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00054}00054                 \}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00055}00055                 \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00056}00056                     \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00057}00057             \}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00058}00058 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00059}00059             std::cout << buf;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00060}00060 }
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00061}00061             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}{COL\_CYAN}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00062}00062             std::cout << filename;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00063}00063             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{COL\_WHITE}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00064}00064             std::cout << \textcolor{stringliteral}{"{} | "{}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00065}00065             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}{COL\_CYAN}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00066}00066             std::cout << \textcolor{stringliteral}{"{}LN"{}} << line;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00067}00067             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{COL\_WHITE}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00068}00068             std::cout << \textcolor{stringliteral}{"{} | "{}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00069}00069             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}{COL\_CYAN}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00070}00070             std::cout << function;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00071}00071             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{COL\_WHITE}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00072}00072             std::cout << \textcolor{stringliteral}{"{} | "{}};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00073}00073             SetConsoleTextAttribute(hConsole, CurrentColour);}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00074}00074             std::cout << msg}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00075}00075                       << std::endl;}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00076}00076             SetConsoleTextAttribute(hConsole, \mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{COL\_WHITE}});}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00077}00077         \}}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00078}00078     \};}
+\DoxyCodeLine{\Hypertarget{_logging_8h_source_l00079}00079 \}}
+
+\end{DoxyCode}

@@ -1,20 +1,16 @@
 #pragma once
-
+#include "refl.hpp"
+#include "Base/Reflectable.h"
 #include <memory>
 
-struct IComponent {
-    enum ComponentType {
-        METADATA,
-        TRANSFORM,
-        MESH,
-        SHADER,
-        TEXTURE,
-        CAMERA
+namespace Components {
+    struct IComponent : public Reflectable {
+
+        GLASS_REFLECTABLE();
+
+        virtual ~IComponent() = default;
     };
 
-    ComponentType componentType;
 
-    IComponent() = default;
-
-    virtual ~IComponent() = default;;
-};
+}
+REFL_AUTO(type(Components::IComponent))

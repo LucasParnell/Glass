@@ -1,0 +1,215 @@
+\hypertarget{_glass_8cc_source}{}\doxysection{Glass.\+cc}
+\label{_glass_8cc_source}\index{lib/Base/Glass.cc@{lib/Base/Glass.cc}}
+\mbox{\hyperlink{_glass_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_glass_8h}{Glass.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Components/Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00004}00004 \textcolor{comment}{//GLFW is kinda goofy}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00005}00005 \textcolor{keywordtype}{void} \mbox{\hyperlink{_glass_8cc_a5180f7bf2b71421af837035824a8c8ac}{framebuffer\_size\_callback}}(GLFWwindow *window, \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00007}00007 \textcolor{keywordtype}{void} \mbox{\hyperlink{_glass_8cc_af4ca2891044ac10a664b8d83ce590f1f}{mouse\_callback}}(GLFWwindow *window, \textcolor{keywordtype}{double} xpos, \textcolor{keywordtype}{double} ypos);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00009}00009 \textcolor{keyword}{using }\mbox{\hyperlink{class_base_1_1_glass}{Base::Glass}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00010}00010 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00011}00011 \mbox{\hyperlink{class_base_1_1_glass_a6ab9809c84efe5c196821ce5c5d4946b}{Glass::Glass}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00013}\mbox{\hyperlink{class_base_1_1_glass_a624eb9567c1b66c83d4a349e67fc3d80}{00013}} \mbox{\hyperlink{class_base_1_1_glass_a624eb9567c1b66c83d4a349e67fc3d80}{Glass::\string~Glass}}() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00014}00014     \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Result}} status = iCleanup();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00015}00015     \textcolor{keywordflow}{if} (status != \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac6cc4a82fbeef6086bf975cf2c2b4faf}{Result::STATUS\_OK}})}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00016}00016         \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}{LOG\_WARN}}, \textcolor{stringliteral}{"{}There was an error during cleanup"{}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00017}00017 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00019}00019 \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Base::Result}} Glass::iCleanup() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00020}00020     glfwTerminate();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00021}00021     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac6cc4a82fbeef6086bf975cf2c2b4faf}{Result::STATUS\_OK}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00022}00022 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00023}00023 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00025}\mbox{\hyperlink{class_base_1_1_glass_a9931510ce252ec3d7b5567bbfedf5cda}{00025}} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Base::Result}} \mbox{\hyperlink{class_base_1_1_glass_a9931510ce252ec3d7b5567bbfedf5cda}{Glass::iCreateWindow}}(\mbox{\hyperlink{class_base_1_1_window}{Window}} \&window) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00026}00026     glfwInit();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00027}00027     glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MAJOR, 3);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00028}00028     glfwWindowHint(GLFW\_CONTEXT\_VERSION\_MINOR, 3);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00029}00029     glfwWindowHint(GLFW\_OPENGL\_PROFILE, GLFW\_OPENGL\_CORE\_PROFILE);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00031}00031     GLFWmonitor *monitor = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00032}00032     \textcolor{keywordtype}{int} width = window.\mbox{\hyperlink{class_base_1_1_window_a9bf5143f44078d290eb58bf3eb4fecf4}{width}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00033}00033     \textcolor{keywordtype}{int} height = window.\mbox{\hyperlink{class_base_1_1_window_ae25c9b7d122be0c6d159c90f7e465ad0}{height}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00034}00034 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00035}00035     \textcolor{keywordflow}{switch} (window.\mbox{\hyperlink{class_base_1_1_window_a35e0456acd19b05ca5d12bea37b6b081}{fullscreenType}}) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00036}00036         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a8e97d8949403e5aeeefab0729b22f6c7}{Window::Enabled}}: \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00037}00037             monitor = glfwGetPrimaryMonitor();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00038}00038             \textcolor{keyword}{const} GLFWvidmode *mode = glfwGetVideoMode(monitor);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00039}00039             glfwWindowHint(GLFW\_RED\_BITS, mode-\/>redBits);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00040}00040             glfwWindowHint(GLFW\_GREEN\_BITS, mode-\/>greenBits);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00041}00041             glfwWindowHint(GLFW\_BLUE\_BITS, mode-\/>blueBits);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00042}00042             glfwWindowHint(GLFW\_REFRESH\_RATE, mode-\/>refreshRate);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00043}00043             width = mode-\/>width;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00044}00044             height = mode-\/>height;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00045}00045             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00046}00046         \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00047}00047         \textcolor{keywordflow}{case} \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a3cb1b192c7bf875d7a1f87ea9f60cef8}{Window::Borderless}}: \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00048}00048             glfwWindowHint(GLFW\_DECORATED, GLFW\_FALSE);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00049}00049             monitor = glfwGetPrimaryMonitor();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00050}00050             \textcolor{keyword}{const} GLFWvidmode *mode = glfwGetVideoMode(monitor);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00051}00051             width = mode-\/>width;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00052}00052             height = mode-\/>height + 1;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00053}00053             monitor = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00054}00054             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00055}00055         \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00056}00056         \textcolor{keywordflow}{default}:}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00057}00057             glfwWindowHint(GLFW\_DECORATED, GLFW\_TRUE);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00058}00058             \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00059}00059 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00060}00060     \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00061}00061 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00062}00062     \textcolor{comment}{//Create a new window with the supplied parameters}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00063}00063     GLFWwindow *sWindow = glfwCreateWindow(width, height, window.\mbox{\hyperlink{class_base_1_1_window_a32efb2044b0e889a495eb0b6bb3f78ef}{title}}, monitor, \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00064}00064 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00065}00065 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00066}00066     \textcolor{keywordflow}{if} (sWindow == \textcolor{keyword}{nullptr}) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00067}00067         \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\_ERROR}}, \textcolor{stringliteral}{"{}Could not create window"{}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00068}00068         glfwTerminate();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00069}00069         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac01289a7e6e2f258f7de3f16399fd5f1}{Result::STATUS\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00070}00070     \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00071}00071 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00072}00072     glfwMakeContextCurrent(sWindow);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00073}00073     glfwSetFramebufferSizeCallback(sWindow, \mbox{\hyperlink{_glass_8cc_a5180f7bf2b71421af837035824a8c8ac}{framebuffer\_size\_callback}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00074}00074     glfwSwapInterval(0);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00075}00075     \textcolor{comment}{// glad: load all OpenGL function pointers}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00076}00076     \textcolor{keywordflow}{if} (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00077}00077         \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\_ERROR}}, \textcolor{stringliteral}{"{}Could not initialize GLAD"{}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00078}00078         \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac01289a7e6e2f258f7de3f16399fd5f1}{Result::STATUS\_ERROR}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00079}00079     \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00080}00080 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00081}00081     window.\mbox{\hyperlink{class_base_1_1_window_af085e9adc25773214a5fb3a217bc5390}{SetWindow}}(sWindow);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00082}00082     mWindow = window;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00083}00083 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00084}00084     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac6cc4a82fbeef6086bf975cf2c2b4faf}{Result::STATUS\_OK}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00085}00085 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00086}00086 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00087}\mbox{\hyperlink{class_base_1_1_glass_a90d2169200073bf91f1d27c33cb2a948}{00087}} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Base::Result}} \mbox{\hyperlink{class_base_1_1_glass_a90d2169200073bf91f1d27c33cb2a948}{Glass::iBeginEngineLoop}}() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00088}00088     \textcolor{comment}{//Set up engine for loop}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00089}00089 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00090}00090     GLFWwindow *pWindow = mWindow.\mbox{\hyperlink{class_base_1_1_window_a08a971cf73770ca7cab5f36a3c64ae86}{pGetWindow}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00091}00091 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00092}00092     \textcolor{comment}{//Set up mouse}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00093}00093     glfwSetInputMode(pWindow, GLFW\_CURSOR, GLFW\_CURSOR\_DISABLED);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00094}00094     \textcolor{keywordflow}{if} (glfwRawMouseMotionSupported())}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00095}00095         glfwSetInputMode(pWindow, GLFW\_RAW\_MOUSE\_MOTION, GLFW\_TRUE);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00096}00096 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00097}00097     glfwSetCursorPosCallback(pWindow, \mbox{\hyperlink{_glass_8cc_af4ca2891044ac10a664b8d83ce590f1f}{mouse\_callback}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00098}00098 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00099}00099     \textcolor{comment}{//Enable Depth Testing and Culling}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00100}00100     glEnable(GL\_DEPTH\_TEST);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00101}00101     glDepthFunc(GL\_LESS);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00102}00102     glEnable(GL\_CULL\_FACE);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00103}00103 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00104}00104     \textcolor{comment}{//Setup frame-\/time counter}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00105}00105     \textcolor{keywordtype}{double} currentTime;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00106}00106     \textcolor{keywordtype}{double} previousTime = 0;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00107}00107     \textcolor{keywordtype}{double} timeDelta;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00108}00108 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00109}00109     \textcolor{keywordflow}{while} (!glfwWindowShouldClose(pWindow)) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00110}00110         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00111}00111         glClear(GL\_COLOR\_BUFFER\_BIT | GL\_DEPTH\_BUFFER\_BIT);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00112}00112 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00113}00113         currentTime = glfwGetTime();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00114}00114         timeDelta = (currentTime -\/ previousTime);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00115}00115         previousTime = glfwGetTime();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00116}00116 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00117}00117 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00118}00118         \textcolor{comment}{//BELOW IS ALL TEMPORARY AND WILL BE HANDLED IN LUA LATER ON}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00119}00119         \textcolor{comment}{// input}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00120}00120         \textcolor{comment}{// -\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00121}00121         \textcolor{keywordflow}{if} (glfwGetKey(pWindow, GLFW\_KEY\_ESCAPE) == GLFW\_PRESS)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00122}00122             glfwSetWindowShouldClose(pWindow, \textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00123}00123 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00124}00124         \mbox{\hyperlink{class_components_1_1_camera}{Components::Camera}} *pCamera = \mbox{\hyperlink{class_components_1_1_camera_af9f8bbf9c26f85e3cae5be7c037c72d8}{Components::Camera::pGetMainCamera}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00125}00125         \textcolor{keyword}{const} \textcolor{keywordtype}{float} cameraSpeed = 2.0f * (float) timeDelta; \textcolor{comment}{// adjust accordingly}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00126}00126         \textcolor{keywordflow}{if} (glfwGetKey(pWindow, GLFW\_KEY\_W) == GLFW\_PRESS)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00127}00127             pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}} += cameraSpeed * pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00128}00128         if (glfwGetKey(pWindow, GLFW\_KEY\_S) == GLFW\_PRESS)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00129}00129             pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}} -\/= cameraSpeed * pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00130}00130         if (glfwGetKey(pWindow, GLFW\_KEY\_A) == GLFW\_PRESS)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00131}00131             pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}} -\/= glm::normalize(glm::cross(pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}, pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_aa385c8269675a3bbe8751ba6415405d3}{up}})) * cameraSpeed;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00132}00132         \textcolor{keywordflow}{if} (glfwGetKey(pWindow, GLFW\_KEY\_D) == GLFW\_PRESS)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00133}00133             pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}} += glm::normalize(glm::cross(pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}, pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_aa385c8269675a3bbe8751ba6415405d3}{up}})) * cameraSpeed;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00134}00134 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00135}00135         pCamera-\/>\mbox{\hyperlink{class_components_1_1_camera_ae94de322124a68e32113235eeec78008}{UpdateVectors}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00136}00136         \textcolor{comment}{//-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00137}00137 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00138}00138         mRenderSystem.\mbox{\hyperlink{class_rendering_1_1_render_system_a446ccbacc44b50e6f73cbd5b4c91dc3b}{Render}}(\&mWindow, \&mEntityManager, \&mComponentManager);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00139}00139 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00140}00140         glfwSwapBuffers(pWindow);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00141}00141         glfwPollEvents();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00142}00142     \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00143}00143 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00144}00144     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac6cc4a82fbeef6086bf975cf2c2b4faf}{Result::STATUS\_OK}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00145}00145 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00146}00146 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00147}00147 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00148}\mbox{\hyperlink{class_base_1_1_glass_ad4f32bd893a627b1f3e68b766449db33}{00148}} \mbox{\hyperlink{struct_managers_1_1_component_manager}{Managers::ComponentManager}} *\mbox{\hyperlink{class_base_1_1_glass_ad4f32bd893a627b1f3e68b766449db33}{Glass::pGetComponentManager}}() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00149}00149     \textcolor{keywordflow}{return} \&mComponentManager;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00150}00150 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00151}00151 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00152}\mbox{\hyperlink{class_base_1_1_glass_af4c2152222d62753ae6561dda50c9af9}{00152}} \mbox{\hyperlink{class_managers_1_1_entity_manager}{Managers::EntityManager}} *\mbox{\hyperlink{class_base_1_1_glass_af4c2152222d62753ae6561dda50c9af9}{Glass::pGetEntityManager}}() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00153}00153     \textcolor{keywordflow}{return} \&mEntityManager;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00154}00154 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00155}00155 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00156}\mbox{\hyperlink{class_base_1_1_glass_ae64f43c65bf3c6f945631d06c61bd99e}{00156}} \mbox{\hyperlink{class_rendering_1_1_render_system}{Rendering::RenderSystem}} *\mbox{\hyperlink{class_base_1_1_glass_ae64f43c65bf3c6f945631d06c61bd99e}{Glass::pGetRenderSystem}}() \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00157}00157     \textcolor{keywordflow}{return} \&mRenderSystem;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00158}00158 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00159}00159 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00160}\mbox{\hyperlink{class_base_1_1_glass_ad45f75ef1659fc1f3c037e108091655d}{00160}} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Base::Result}} \mbox{\hyperlink{class_base_1_1_glass_ad45f75ef1659fc1f3c037e108091655d}{Glass::iSerialiseEntity}}(\textcolor{keyword}{const} \mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{Entity}} \&entity) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00161}00161     json ex3 = \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00162}00162             \{\textcolor{stringliteral}{"{}name"{}}, entity\},}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00163}00163             \{\textcolor{stringliteral}{"{}components"{}},\}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00164}00164     \};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00165}00165     std::vector<std::uint8\_t> v\_cbor = json::to\_cbor(ex3);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00166}00166     std::ofstream outputFile(\textcolor{stringliteral}{"{}CoolWorld/"{}} + entity + \textcolor{stringliteral}{"{}.ged"{}});}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00167}00167     outputFile << v\_cbor.data();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00168}00168 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00169}00169 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00170}00170     \textcolor{keywordflow}{return} \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30ac6cc4a82fbeef6086bf975cf2c2b4faf}{Result::STATUS\_OK}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00171}00171 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00172}00172 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00173}00173 \textcolor{comment}{//Replace this}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00174}\mbox{\hyperlink{_glass_8cc_a5180f7bf2b71421af837035824a8c8ac}{00174}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_glass_8cc_a5180f7bf2b71421af837035824a8c8ac}{framebuffer\_size\_callback}}(GLFWwindow *window, \textcolor{keywordtype}{int} width, \textcolor{keywordtype}{int} height) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00175}00175     glViewport(0, 0, width, height);}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00176}00176 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00177}00177 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00178}00178 \textcolor{comment}{//Again, is temporary}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00179}\mbox{\hyperlink{_glass_8cc_abdac3d80589aa90c75965ccf726d3a6b}{00179}} \textcolor{keyword}{auto} \mbox{\hyperlink{_glass_8cc_abdac3d80589aa90c75965ccf726d3a6b}{lastX}} = 2560 / 2;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00180}\mbox{\hyperlink{_glass_8cc_ae964d21f7d29a33698858d192bfe248a}{00180}} \textcolor{keyword}{auto} \mbox{\hyperlink{_glass_8cc_ae964d21f7d29a33698858d192bfe248a}{lastY}} = 1440 / 2;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00181}\mbox{\hyperlink{_glass_8cc_ac21731ba101e28334c34543121caa841}{00181}} \textcolor{keywordtype}{bool} \mbox{\hyperlink{_glass_8cc_ac21731ba101e28334c34543121caa841}{firstMouse}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00182}00182 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00183}\mbox{\hyperlink{_glass_8cc_af4ca2891044ac10a664b8d83ce590f1f}{00183}} \textcolor{keywordtype}{void} \mbox{\hyperlink{_glass_8cc_af4ca2891044ac10a664b8d83ce590f1f}{mouse\_callback}}(GLFWwindow *window, \textcolor{keywordtype}{double} xpos, \textcolor{keywordtype}{double} ypos) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00184}00184     \textcolor{keyword}{auto} camera = \mbox{\hyperlink{class_components_1_1_camera_af9f8bbf9c26f85e3cae5be7c037c72d8}{Components::Camera::pGetMainCamera}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00185}00185     \textcolor{keywordflow}{if} (\mbox{\hyperlink{_glass_8cc_ac21731ba101e28334c34543121caa841}{firstMouse}}) \{}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00186}00186         \mbox{\hyperlink{_glass_8cc_abdac3d80589aa90c75965ccf726d3a6b}{lastX}} = (int) xpos;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00187}00187         \mbox{\hyperlink{_glass_8cc_ae964d21f7d29a33698858d192bfe248a}{lastY}} = (int) ypos;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00188}00188         \mbox{\hyperlink{_glass_8cc_ac21731ba101e28334c34543121caa841}{firstMouse}} = \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00189}00189     \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00190}00190 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00191}00191     \textcolor{keywordtype}{float} xoffset = xpos -\/ \mbox{\hyperlink{_glass_8cc_abdac3d80589aa90c75965ccf726d3a6b}{lastX}};}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00192}00192     \textcolor{keywordtype}{float} yoffset = \mbox{\hyperlink{_glass_8cc_ae964d21f7d29a33698858d192bfe248a}{lastY}} -\/ ypos;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00193}00193     \mbox{\hyperlink{_glass_8cc_abdac3d80589aa90c75965ccf726d3a6b}{lastX}} = xpos;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00194}00194     \mbox{\hyperlink{_glass_8cc_ae964d21f7d29a33698858d192bfe248a}{lastY}} = ypos;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00195}00195 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00196}00196     \textcolor{keywordtype}{float} sensitivity = 0.1f;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00197}00197     xoffset *= sensitivity;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00198}00198     yoffset *= sensitivity;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00199}00199 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00200}00200     camera-\/>yaw += xoffset;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00201}00201     camera-\/>pitch += yoffset;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00202}00202 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00203}00203     \textcolor{keywordflow}{if} (camera-\/>pitch > 89.0f)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00204}00204         camera-\/>pitch = 89.0f;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00205}00205     \textcolor{keywordflow}{if} (camera-\/>pitch < -\/89.0f)}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00206}00206         camera-\/>pitch = -\/89.0f;}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00207}00207 \}}
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00208}00208 }
+\DoxyCodeLine{\Hypertarget{_glass_8cc_source_l00209}00209 }
+
+\end{DoxyCode}

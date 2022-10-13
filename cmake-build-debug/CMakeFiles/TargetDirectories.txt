@@ -1,0 +1,12 @@
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/Glass.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/Test.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/list_install_components.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/install.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/install/local.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master/CMakeFiles/edit_cache.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master/CMakeFiles/rebuild_cache.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master/CMakeFiles/list_install_components.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master/CMakeFiles/install.dir
+C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master/CMakeFiles/install/local.dir

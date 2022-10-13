@@ -7,28 +7,32 @@
 #include "IComponent.h"
 #include "Transform.h"
 
-class Camera : IComponent {
-public:
-     explicit GLASS_EXPORT Camera(Transform *position);
+namespace Components {
 
-    GLASS_EXPORT void UpdateVectors();
+    class Camera : IComponent {
+    public:
+        explicit GLASS_EXPORT Camera(Transform *position);
 
-    void MakeMainCamera();
+        GLASS_EXPORT void UpdateVectors();
 
-    static Camera* pGetMainCamera();
+        void MakeMainCamera();
 
-    glm::mat4 m4GetView();
+        static Camera *pGetMainCamera();
+
+        [[nodiscard]] glm::mat4 m4GetView() const;
 
 
-    Transform *transform;
+        Transform *transform;
 
-    glm::vec3 front = glm::vec3(0.0f);
-    glm::vec3 right = glm::vec3(0.0f);
-    glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
-    glm::vec3 up = glm::vec3(0.0f);
-    float yaw = 0;
-    float pitch = 0;
-
-private:
-    inline static Camera *mainCamera = nullptr;
-};
+        glm::vec3 front = glm::vec3(0.0f);
+        glm::vec3 right = glm::vec3(0.0f);
+        glm::vec3 worldUp = glm::vec3(0.0f, 1.0f, 0.0f);
+        glm::vec3 up = glm::vec3(0.0f);
+        float yaw = 0;
+        float pitch = 0;
+        GLASS_REFLECTABLE();
+    private:
+        inline static Camera *mainCamera = nullptr;
+    };
+}
+REFL_AUTO(type(Components::Camera, bases<Components::IComponent>))

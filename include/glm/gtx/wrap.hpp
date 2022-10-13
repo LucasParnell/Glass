@@ -26,12 +26,11 @@
 #	endif
 #endif
 
-namespace glm
-{
-	/// @addtogroup gtx_wrap
-	/// @{
+namespace glm {
+    /// @addtogroup gtx_wrap
+    /// @{
 
-	/// @}
+    /// @}
 }// namespace glm
 
 #include "wrap.inl"

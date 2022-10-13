@@ -1,0 +1,62 @@
+\hypertarget{_component_manager_8h_source}{}\doxysection{Component\+Manager.\+h}
+\label{_component_manager_8h_source}\index{lib/Managers/ComponentManager.h@{lib/Managers/ComponentManager.h}}
+\mbox{\hyperlink{_component_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00004}00004 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00005}00005 \textcolor{preprocessor}{\#include <memory>}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00006}00006 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_component_8h}{Components/IComponent.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00008}00008 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_logging_8h}{Base/Logging.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00010}\mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{00010}} \textcolor{keyword}{using }\mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{Entity}} = std::string;}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00011}\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{00011}} \textcolor{keyword}{using }\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} = uint32\_t;}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00013}\mbox{\hyperlink{namespace_managers}{00013}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_managers}{Managers}} \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00014}\mbox{\hyperlink{struct_managers_1_1_component_manager}{00014}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_managers_1_1_component_manager}{ComponentManager}} \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00016}00016         \textcolor{comment}{//Array of components}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00017}\mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{00017}}         std::vector<Components::IComponent *> \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}};}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00019}00019         \textcolor{comment}{//Entity-\/Components vector}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00020}\mbox{\hyperlink{struct_managers_1_1_component_manager_a543bae958cdbc72c737c1ef6245fc1eb}{00020}}         std::map<Entity, std::vector<Component>> \mbox{\hyperlink{struct_managers_1_1_component_manager_a543bae958cdbc72c737c1ef6245fc1eb}{entityComponents}};}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00022}\mbox{\hyperlink{struct_managers_1_1_component_manager_a0a012e8f17a19e13c4a883a6a5491155}{00022}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_a0a012e8f17a19e13c4a883a6a5491155}{ComponentManager}}() \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00023}00023             \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.reserve(2048);}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00024}00024         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00025}00025 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00026}00026         \textcolor{keyword}{template}<\textcolor{keyword}{class} iComponent>}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00027}\mbox{\hyperlink{struct_managers_1_1_component_manager_aa8f35d53f81fac33b0adc9cbce2e8974}{00027}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_aa8f35d53f81fac33b0adc9cbce2e8974}{\_\_declspec}}(dllexport)  \mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} \_\_cdecl RegisterComponent() \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00028}00028             \textcolor{keyword}{auto} \mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}} = (\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}}) \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.size();}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00029}00029 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00030}00030             \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.push\_back(\textcolor{keyword}{new} iComponent());}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00031}00031             \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}};}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00032}00032         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00034}\mbox{\hyperlink{struct_managers_1_1_component_manager_a9ea17356593f381a662260552204f17f}{00034}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_a9ea17356593f381a662260552204f17f}{\_\_declspec}}(dllexport) \textcolor{keywordtype}{void} \_\_cdecl UnRegisterComponent(\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} \mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}}) \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00035}00035             \textcolor{comment}{//Add actual removal system, stop being lazy.}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00036}00036             \textcolor{keyword}{delete} \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.at(\mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}});}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00037}00037         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00038}00038 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00039}\mbox{\hyperlink{struct_managers_1_1_component_manager_a6d0975fe84deb67747577cb6f74694e4}{00039}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_a6d0975fe84deb67747577cb6f74694e4}{\_\_declspec}}(dllexport) \textcolor{keywordtype}{void} \_\_cdecl AddComponent(\mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{Entity}} entity, \mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} \mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}}) \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00040}00040             \mbox{\hyperlink{struct_managers_1_1_component_manager_a543bae958cdbc72c737c1ef6245fc1eb}{entityComponents}}[entity].push\_back(\mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}});}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00041}00041         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00042}00042 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00043}\mbox{\hyperlink{struct_managers_1_1_component_manager_a31925d8d0761bda3748723714e81aafa}{00043}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_a31925d8d0761bda3748723714e81aafa}{\_\_declspec}}(dllexport) \mbox{\hyperlink{struct_components_1_1_i_component}{Components::IComponent}} *\_\_cdecl GetComponentPtr(\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} \mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}}) \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00044}00044             \textcolor{keyword}{auto} ptr = \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.at(\mbox{\hyperlink{struct_managers_1_1_component_manager_ae870c2602770c8287b5d55588922aeea}{component}});}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00045}00045             \textcolor{keywordflow}{return} (ptr);}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00046}00046         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00047}00047 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00048}\mbox{\hyperlink{struct_managers_1_1_component_manager_a31925d8d0761bda3748723714e81aafa}{00048}}         \mbox{\hyperlink{struct_managers_1_1_component_manager_a31925d8d0761bda3748723714e81aafa}{\_\_declspec}}(dllexport) \mbox{\hyperlink{struct_components_1_1_i_component}{Components::IComponent}} *}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00049}00049         \_\_cdecl SetComponent(\mbox{\hyperlink{_component_manager_8h_a3c9e5c8492dfb9acae3617bd1263e15f}{Component}} componentID, \mbox{\hyperlink{struct_components_1_1_i_component}{Components::IComponent}} *componentObj) \{}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00050}00050             \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.at(componentID) = componentObj;}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00051}00051 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00052}00052             \textcolor{keywordflow}{return} \mbox{\hyperlink{struct_managers_1_1_component_manager_ab973e8350b0f813360bf2ca8906e54af}{components}}.at(componentID);}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00053}00053         \}}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00054}00054 }
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00055}00055     \};}
+\DoxyCodeLine{\Hypertarget{_component_manager_8h_source_l00056}00056 \}}
+
+\end{DoxyCode}

@@ -6,13 +6,12 @@
 
 #include "IComponent.h"
 
-struct Texture : IComponent {
-    Texture() {
-        this->componentType = TEXTURE;
-    }
+namespace Components {
+    struct Texture : IComponent {
+        bool loaded = false;
+        GLuint ID;
+        GLASS_REFLECTABLE();
+    };
+}
 
-    bool loaded = false;
-    GLuint ID;
-
-    Texture teCreateMesh(const char *texDir);
-};
+REFL_AUTO(type(Components::Texture, bases<Components::IComponent>))

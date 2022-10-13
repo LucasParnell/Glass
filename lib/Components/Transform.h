@@ -3,10 +3,11 @@
 #include "IComponent.h"
 #include "glm/vec3.hpp"
 
-struct Transform : public IComponent {
-    Transform() { componentType = TRANSFORM; }
+namespace Components {
+    struct Transform : public IComponent {
 
-    glm::vec3 position = glm::vec3(0.0f);
-
-
-};
+        glm::vec3 position = glm::vec3(0.0f);
+        GLASS_REFLECTABLE();
+    };
+}
+REFL_AUTO(type(Components::Transform, bases<Components::IComponent>))

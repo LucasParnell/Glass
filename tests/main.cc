@@ -3,36 +3,36 @@
 
 //Fix includes and stuff, am very tired today
 #include "../lib/Base/Glass.h"
-#include "../lib/Components/Mesh.h"
-#include "../lib/Loaders/MeshLoader.h"
-//#include "Renderer.h"
-#include "../lib/Components/Camera.h"
-#include "../lib/Components/Texture.h"
 #include "Loaders/TextureLoader.h"
+#include "Filesystem/Vfs.h"
 
-int main()
-{
+int main() {
 
-    Glass engine;
-    Window window{};
+    Base::Glass engine;
+    Base::Window window{};
     window.title = "Glass Window";
     window.width = 1920;
     window.height = 1080;
-    window.fullscreenType = Window::FullscreenType::kDisabled;
+    window.fullscreenType = Base::Window::FullscreenType::Disabled;
 
     engine.iCreateWindow(window);
-
+    MLOG(LOG_INFO, "Window Created");
 
 
     auto entityMan = engine.pGetEntityManager();
     auto compMan = engine.pGetComponentManager();
     auto renderer = engine.pGetRenderSystem();
+    MLOG(LOG_INFO, "Retrieved Managers");
+
+
+    VFS::Mount("data\\test.gpk");
+    VFS::ListAll();
 
     //Make camera
     auto camera = entityMan->CreateEntity();
-    auto camera_transform = compMan->RegisterComponent<Transform>();
-    auto cam_transform_ptr = (Transform*)(compMan->GetComponentPtr(camera_transform));
-    auto lCamera = new Camera(cam_transform_ptr);
+    auto camera_transform = compMan->RegisterComponent<Components::Transform>();
+    auto cam_transform_ptr = (Components::Transform *) (compMan->GetComponentPtr(camera_transform));
+    auto lCamera = new Components::Camera(cam_transform_ptr);
 
     cam_transform_ptr->position.z -= 1.0f;
     lCamera->UpdateVectors();
@@ -41,10 +41,10 @@ int main()
     auto monkey = entityMan->CreateEntity();
 
     //Register components
-    auto monkey_transform = compMan->RegisterComponent<Transform>();
-    auto monkey_mesh = compMan->RegisterComponent<Mesh>();
-    auto monkey_shader = compMan->RegisterComponent<Shader>();
-    auto monkey_texture = compMan->RegisterComponent<Texture>();
+    auto monkey_transform = compMan->RegisterComponent<Components::Transform>();
+    auto monkey_mesh = compMan->RegisterComponent<Components::Mesh>();
+    auto monkey_shader = compMan->RegisterComponent<Components::Shader>();
+    auto monkey_texture = compMan->RegisterComponent<Components::Texture>();
 
     //Add components to monkey
     compMan->AddComponent(monkey, monkey_transform);
@@ -53,19 +53,20 @@ int main()
     compMan->AddComponent(monkey, monkey_texture);
 
     //Load mesh and shader
-    MeshLoader ml;
-    TextureLoader tl;
-    Mesh monkey_lMesh = ml.meCreateMesh("table");
-    Texture monkey_lTexture = tl.teCreateTexture("CoolWorld/rock.png");
+    Loaders::MeshLoader ml;
+    Loaders::TextureLoader tl;
+    Components::Mesh monkey_lMesh = ml.meCreateMesh("table");
+    Components::Texture monkey_lTexture = tl.teCreateTexture("CoolWorld/rock.png");
 
     //TODO(Make Shader Loader):
-    Shader monkey_lShader = renderer->LoadObject(&monkey_lMesh, "monkey");
+    Components::Shader monkey_lShader = renderer->LoadObject(&monkey_lMesh, "monkey");
 
 
     //Store actual objects
     compMan->SetComponent(monkey_mesh, &monkey_lMesh);
     compMan->SetComponent(monkey_shader, &monkey_lShader);
     compMan->SetComponent(monkey_texture, &monkey_lTexture);
+
 
     engine.iBeginEngineLoop();
 }

@@ -1,0 +1,17 @@
+\hypertarget{_entity_manager_8cc_source}{}\doxysection{Entity\+Manager.\+cc}
+\label{_entity_manager_8cc_source}\index{lib/Managers/EntityManager.cc@{lib/Managers/EntityManager.cc}}
+\mbox{\hyperlink{_entity_manager_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include <cassert>}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00002}00002 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_manager_8h}{EntityManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00004}00004 \textcolor{keyword}{using namespace }\mbox{\hyperlink{namespace_managers}{Managers}};}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00005}00005 \mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{Entity}} EntityManager::CreateEntity() \{}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00006}00006     UUIDv4::UUID uuid = uuidGenerator.getUUID();}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00007}00007     std::string s = uuid.str();}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00008}00008     \mbox{\hyperlink{class_managers_1_1_entity_manager_a3ebe6056c936cf35f715d79b0e0aa6ad}{entities}}.push\_back(s);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00009}00009     \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aeb4f36db01bd128c7afeac5889dac311}{LOG\_INFO}}, s);}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00010}00010     \textcolor{keywordflow}{return} s;}
+\DoxyCodeLine{\Hypertarget{_entity_manager_8cc_source_l00011}00011 \}}
+
+\end{DoxyCode}

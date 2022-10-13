@@ -1,8 +1,11 @@
+#include <cassert>
 #include "EntityManager.h"
-#include "Debug/Logging.h"
 
+using namespace Managers;
 Entity EntityManager::CreateEntity() {
-    Entity id = entities.size();
-    entities.push_back(id);
-    return id;
+    UUIDv4::UUID uuid = uuidGenerator.getUUID();
+    std::string s = uuid.str();
+    entities.push_back(s);
+    MLOG(LOG_INFO, s);
+    return s;
 }

@@ -2,15 +2,17 @@
 
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
-Mesh MeshLoader::meCreateMesh(const char *meshDir) {
+using Loaders::MeshLoader;
 
-    std::string inputfile = "CoolWorld/" + std::string(meshDir) + ".glb";
+Components::Mesh MeshLoader::meCreateMesh(const char *meshDir) {
 
-    auto baseMesh = new Mesh();
+    std::string inputFile = "CoolWorld/" + std::string(meshDir) + ".glb";
+
+    auto baseMesh = new Components::Mesh();
 
     tinygltf::Model model;
 
-    bLoadModel(model, inputfile.c_str());
+    bLoadModel(model, inputFile.c_str());
 
     std::pair<GLuint, std::map<int, GLuint>> vaoAndEbos = bindModel(model);
 
@@ -68,8 +70,7 @@ void MeshLoader::bindMesh(std::map<int, GLuint> &vbos, tinygltf::Model &model, t
                      &buffer.data.at(0) + bufferView.byteOffset, GL_STATIC_DRAW);
     }
 
-    for (size_t i = 0; i < mesh.primitives.size(); ++i) {
-        tinygltf::Primitive primitive = mesh.primitives[i];
+    for (auto primitive: mesh.primitives) {
         tinygltf::Accessor indexAccessor = model.accessors[primitive.indices];
 
         for (auto &attrib: primitive.attributes) {
@@ -84,9 +85,9 @@ void MeshLoader::bindMesh(std::map<int, GLuint> &vbos, tinygltf::Model &model, t
             }
 
             int vaa = -1;
-            if (attrib.first.compare("POSITION") == 0) vaa = 0;
-            if (attrib.first.compare("NORMAL") == 0) vaa = 1;
-            if (attrib.first.compare("TEXCOORD_0") == 0) vaa = 2;
+            if (attrib.first == "POSITION") vaa = 0;
+            if (attrib.first == "NORMAL") vaa = 1;
+            if (attrib.first == "TEXCOORD_0") vaa = 2;
             if (vaa > -1) {
                 glEnableVertexAttribArray(vaa);
                 glVertexAttribPointer(vaa, size, accessor.componentType,
@@ -99,15 +100,16 @@ void MeshLoader::bindMesh(std::map<int, GLuint> &vbos, tinygltf::Model &model, t
 }
 
 // bind models
+//TODO(REWRITE THIS, RECURSION IS BAD)
 void MeshLoader::bindModelNodes(std::map<int, GLuint> &vbos, tinygltf::Model &model,
                                 tinygltf::Node &node) {
     if ((node.mesh >= 0) && (node.mesh < model.meshes.size())) {
         bindMesh(vbos, model, model.meshes[node.mesh]);
     }
 
-    for (size_t i = 0; i < node.children.size(); i++) {
+    for (int i: node.children) {
         assert((node.children[i] >= 0) && (node.children[i] < model.nodes.size()));
-        bindModelNodes(vbos, model, model.nodes[node.children[i]]);
+        bindModelNodes(vbos, model, model.nodes[i]);
     }
 }
 
@@ -118,9 +120,8 @@ std::pair<GLuint, std::map<int, GLuint>> MeshLoader::bindModel(tinygltf::Model &
     glBindVertexArray(vao);
 
     const tinygltf::Scene &scene = model.scenes[model.defaultScene];
-    for (size_t i = 0; i < scene.nodes.size(); ++i) {
-        assert((scene.nodes[i] >= 0) && (scene.nodes[i] < model.nodes.size()));
-        bindModelNodes(vbos, model, model.nodes[scene.nodes[i]]);
+    for (int node: scene.nodes) {
+        bindModelNodes(vbos, model, model.nodes[node]);
     }
 
 

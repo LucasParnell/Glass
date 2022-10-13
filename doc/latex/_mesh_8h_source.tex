@@ -1,0 +1,22 @@
+\hypertarget{_mesh_8h_source}{}\doxysection{Mesh.\+h}
+\label{_mesh_8h_source}\index{lib/Components/Mesh.h@{lib/Components/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00003}00003 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_i_component_8h}{IComponent.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}glad/glad.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00006}00006 \textcolor{preprocessor}{\#include "{}tinygltf/tiny\_gltf.h"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00007}00007 \textcolor{preprocessor}{\#include "{}glm/gtc/matrix\_transform.hpp"{}}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00008}00008 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00009}00009 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_components}{Components}} \{}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00010}\mbox{\hyperlink{struct_components_1_1_mesh}{00010}}     \textcolor{keyword}{struct }\mbox{\hyperlink{struct_components_1_1_mesh}{Mesh}} : \mbox{\hyperlink{struct_components_1_1_i_component}{IComponent}} \{ \textcolor{comment}{//Make this easier to use}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00011}\mbox{\hyperlink{struct_components_1_1_mesh_acc850f4c748d81de6998c9dc9a075351}{00011}}         \mbox{\hyperlink{struct_components_1_1_mesh_acc850f4c748d81de6998c9dc9a075351}{Mesh}}() \{ \mbox{\hyperlink{struct_components_1_1_i_component_a0cbbe3636b9e269d05dcbf3dcab16e51}{componentType}} = \mbox{\hyperlink{struct_components_1_1_i_component_a6c77f4684eddcaf7eae8a2614ce5162eae0c0d3a2f53c0f4abbbebed0d18986d7}{MESH}}; \}}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00012}00012 }
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00013}\mbox{\hyperlink{struct_components_1_1_mesh_a61f02404e2eda65526d80c94ba746ef4}{00013}}         tinygltf::Model \mbox{\hyperlink{struct_components_1_1_mesh_a61f02404e2eda65526d80c94ba746ef4}{model}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00014}\mbox{\hyperlink{struct_components_1_1_mesh_a031f3a79276200068dfbb1b8023efe99}{00014}}         std::pair<GLuint, std::map<int, GLuint>> \mbox{\hyperlink{struct_components_1_1_mesh_a031f3a79276200068dfbb1b8023efe99}{vaoAndEbos}};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00015}00015     \};}
+\DoxyCodeLine{\Hypertarget{_mesh_8h_source_l00016}00016 \}}
+
+\end{DoxyCode}

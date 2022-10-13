@@ -1,6 +1,9 @@
 #pragma once
-enum class Result {
-    STATUS_OK,
-    STATUS_WARN,
-    STATUS_ERROR
-};
+
+namespace Base {
+    enum class Result {
+        STATUS_OK,
+        STATUS_WARN,
+        STATUS_ERROR
+    };
+}

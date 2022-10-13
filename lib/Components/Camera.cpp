@@ -1,7 +1,8 @@
 #include "Camera.h"
 
+using Components::Camera;
+
 Camera::Camera(Transform *transform) {
-    componentType = CAMERA;
     mainCamera = this;
     this->transform = transform;
     UpdateVectors();
@@ -18,7 +19,7 @@ void Camera::UpdateVectors() {
     up = glm::normalize(glm::cross(right, front));
 }
 
-glm::mat4 Camera::m4GetView() {
+glm::mat4 Camera::m4GetView() const {
     return glm::lookAt(transform->position, transform->position + front, up);
 }
 
@@ -26,6 +27,6 @@ void Camera::MakeMainCamera() {
     mainCamera = this;
 }
 
-Camera* Camera::pGetMainCamera() {
+Camera *Camera::pGetMainCamera() {
     return mainCamera;
 }

@@ -1,0 +1,34 @@
+\hypertarget{_window_8h_source}{}\doxysection{Window.\+h}
+\label{_window_8h_source}\index{lib/Base/Window.h@{lib/Base/Window.h}}
+\mbox{\hyperlink{_window_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00001}00001 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00003}00003 \textcolor{preprocessor}{\#include "{}glass\_export.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00005}00005 \textcolor{preprocessor}{\#include "{}GLFW/glfw3.h"{}}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00006}00006 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00007}00007 \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_base}{Base}} \{}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00008}\mbox{\hyperlink{class_base_1_1_window}{00008}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_base_1_1_window}{Window}} \{}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00009}00009     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00010}\mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14}{00010}}         \textcolor{keyword}{enum} \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14}{FullscreenType}} \{}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00011}\mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14afbd882f75994316a1d505e6eab5b7a37}{00011}}             \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14afbd882f75994316a1d505e6eab5b7a37}{Disabled}},}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00012}\mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a8e97d8949403e5aeeefab0729b22f6c7}{00012}}             \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a8e97d8949403e5aeeefab0729b22f6c7}{Enabled}},}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00013}00013             \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a3cb1b192c7bf875d7a1f87ea9f60cef8}{Borderless}}}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00014}\mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14a3cb1b192c7bf875d7a1f87ea9f60cef8}{00014}}         \};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00015}00015 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00016}\mbox{\hyperlink{class_base_1_1_window_a32efb2044b0e889a495eb0b6bb3f78ef}{00016}}         \textcolor{keyword}{const} \textcolor{keywordtype}{char} *\mbox{\hyperlink{class_base_1_1_window_a32efb2044b0e889a495eb0b6bb3f78ef}{title}};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00017}\mbox{\hyperlink{class_base_1_1_window_a9bf5143f44078d290eb58bf3eb4fecf4}{00017}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_base_1_1_window_a9bf5143f44078d290eb58bf3eb4fecf4}{width}};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00018}\mbox{\hyperlink{class_base_1_1_window_ae25c9b7d122be0c6d159c90f7e465ad0}{00018}}         \textcolor{keywordtype}{int} \mbox{\hyperlink{class_base_1_1_window_ae25c9b7d122be0c6d159c90f7e465ad0}{height}};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00019}\mbox{\hyperlink{class_base_1_1_window_a35e0456acd19b05ca5d12bea37b6b081}{00019}}         \mbox{\hyperlink{class_base_1_1_window_a9fe53ec90423dd768193d673ccc30d14}{FullscreenType}} \mbox{\hyperlink{class_base_1_1_window_a35e0456acd19b05ca5d12bea37b6b081}{fullscreenType}};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00020}00020 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00021}00021         \textcolor{keywordtype}{void} \mbox{\hyperlink{class_base_1_1_window_af085e9adc25773214a5fb3a217bc5390}{SetWindow}}(GLFWwindow *window);}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00023}00023         GLFWwindow *\mbox{\hyperlink{class_base_1_1_window_a08a971cf73770ca7cab5f36a3c64ae86}{pGetWindow}}();}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00025}00025     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00026}00026         GLFWwindow *window;}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00027}00027     \};}
+\DoxyCodeLine{\Hypertarget{_window_8h_source_l00028}00028 \}}
+
+\end{DoxyCode}

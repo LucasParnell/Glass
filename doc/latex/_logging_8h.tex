@@ -1,0 +1,161 @@
+\hypertarget{_logging_8h}{}\doxysection{lib/\+Base/\+Logging.h File Reference}
+\label{_logging_8h}\index{lib/Base/Logging.h@{lib/Base/Logging.h}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include $<$ctime$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_base_1_1_logging}{Base\+::\+Logging}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespace_base}{Base}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}}~(strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}) ? strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}) + 1 \+: \+\_\+\+\_\+\+FILE\+\_\+\+\_\+)
+\item 
+\#define \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(LOGTYPE,  MSG)~\mbox{\hyperlink{struct_base_1_1_logging_a1cd48fedf3830c141054bbcea87c0960}{Base\+::\+Logging\+::\+Log}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \mbox{\hyperlink{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}} ,\+\_\+\+\_\+\+FUNCTION\+\_\+\+\_\+, LOGTYPE, MSG);
+\item 
+\#define \mbox{\hyperlink{_logging_8h_ab43d256cd2afa78a9fc11d169155c967}{COL\+\_\+\+BLUE}}~9
+\item 
+\#define \mbox{\hyperlink{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}{COL\+\_\+\+CYAN}}~11
+\item 
+\#define \mbox{\hyperlink{_logging_8h_a87d30d2657caae38d671f052cb9cc0e7}{COL\+\_\+\+RED}}~12
+\item 
+\#define \mbox{\hyperlink{_logging_8h_a17784369af03afc179ecf59c670490c7}{COL\+\_\+\+WHITE}}~7
+\item 
+\#define \mbox{\hyperlink{_logging_8h_a079308d2e42e400c3a98ea289db777d4}{COL\+\_\+\+ORANGE}}~14
+\item 
+\#define \mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\+\_\+\+ERROR}}~0
+\item 
+\#define \mbox{\hyperlink{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}{LOG\+\_\+\+WARN}}~1
+\item 
+\#define \mbox{\hyperlink{_logging_8h_aeb4f36db01bd128c7afeac5889dac311}{LOG\+\_\+\+INFO}}~2
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}{Log\+Type}} = uint8\+\_\+t
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}\label{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}} 
+\index{Logging.h@{Logging.h}!\_\_FILENAME\_\_@{\_\_FILENAME\_\_}}
+\index{\_\_FILENAME\_\_@{\_\_FILENAME\_\_}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{\_\_FILENAME\_\_}{\_\_FILENAME\_\_}}
+{\footnotesize\ttfamily \#define \+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+~(strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}) ? strrchr(\+\_\+\+\_\+\+FILE\+\_\+\+\_\+, \textquotesingle{}\textbackslash{}\textbackslash{}\textquotesingle{}) + 1 \+: \+\_\+\+\_\+\+FILE\+\_\+\+\_\+)}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00010}{10}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_ab43d256cd2afa78a9fc11d169155c967}\label{_logging_8h_ab43d256cd2afa78a9fc11d169155c967}} 
+\index{Logging.h@{Logging.h}!COL\_BLUE@{COL\_BLUE}}
+\index{COL\_BLUE@{COL\_BLUE}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{COL\_BLUE}{COL\_BLUE}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+BLUE~9}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00017}{17}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}\label{_logging_8h_a54539d4fa33f5e7cab4b31d8564039a3}} 
+\index{Logging.h@{Logging.h}!COL\_CYAN@{COL\_CYAN}}
+\index{COL\_CYAN@{COL\_CYAN}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{COL\_CYAN}{COL\_CYAN}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+CYAN~11}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00018}{18}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_a079308d2e42e400c3a98ea289db777d4}\label{_logging_8h_a079308d2e42e400c3a98ea289db777d4}} 
+\index{Logging.h@{Logging.h}!COL\_ORANGE@{COL\_ORANGE}}
+\index{COL\_ORANGE@{COL\_ORANGE}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{COL\_ORANGE}{COL\_ORANGE}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+ORANGE~14}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00021}{21}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_a87d30d2657caae38d671f052cb9cc0e7}\label{_logging_8h_a87d30d2657caae38d671f052cb9cc0e7}} 
+\index{Logging.h@{Logging.h}!COL\_RED@{COL\_RED}}
+\index{COL\_RED@{COL\_RED}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{COL\_RED}{COL\_RED}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+RED~12}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00019}{19}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_a17784369af03afc179ecf59c670490c7}\label{_logging_8h_a17784369af03afc179ecf59c670490c7}} 
+\index{Logging.h@{Logging.h}!COL\_WHITE@{COL\_WHITE}}
+\index{COL\_WHITE@{COL\_WHITE}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{COL\_WHITE}{COL\_WHITE}}
+{\footnotesize\ttfamily \#define COL\+\_\+\+WHITE~7}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00020}{20}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}\label{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}} 
+\index{Logging.h@{Logging.h}!LOG\_ERROR@{LOG\_ERROR}}
+\index{LOG\_ERROR@{LOG\_ERROR}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_ERROR}{LOG\_ERROR}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+ERROR~0}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00024}{24}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_aeb4f36db01bd128c7afeac5889dac311}\label{_logging_8h_aeb4f36db01bd128c7afeac5889dac311}} 
+\index{Logging.h@{Logging.h}!LOG\_INFO@{LOG\_INFO}}
+\index{LOG\_INFO@{LOG\_INFO}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_INFO}{LOG\_INFO}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+INFO~2}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00026}{26}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}\label{_logging_8h_aea3f57d6dcc5b4ac957e2679e87dde27}} 
+\index{Logging.h@{Logging.h}!LOG\_WARN@{LOG\_WARN}}
+\index{LOG\_WARN@{LOG\_WARN}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{LOG\_WARN}{LOG\_WARN}}
+{\footnotesize\ttfamily \#define LOG\+\_\+\+WARN~1}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00025}{25}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+\mbox{\Hypertarget{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}\label{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}} 
+\index{Logging.h@{Logging.h}!MLOG@{MLOG}}
+\index{MLOG@{MLOG}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{MLOG}{MLOG}}
+{\footnotesize\ttfamily \#define MLOG(\begin{DoxyParamCaption}\item[{}]{LOGTYPE,  }\item[{}]{MSG }\end{DoxyParamCaption})~\mbox{\hyperlink{struct_base_1_1_logging_a1cd48fedf3830c141054bbcea87c0960}{Base\+::\+Logging\+::\+Log}}(\+\_\+\+\_\+\+LINE\+\_\+\+\_\+, \mbox{\hyperlink{_logging_8h_a5fccb4fc71e44089a1b1a77fc76c0b68}{\+\_\+\+\_\+\+FILENAME\+\_\+\+\_\+}} ,\+\_\+\+\_\+\+FUNCTION\+\_\+\+\_\+, LOGTYPE, MSG);}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00014}{14}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}\label{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}} 
+\index{Logging.h@{Logging.h}!LogType@{LogType}}
+\index{LogType@{LogType}!Logging.h@{Logging.h}}
+\doxysubsubsection{\texorpdfstring{LogType}{LogType}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_logging_8h_a4acd8a0ffbbd5b3271285324620e2a69}{Log\+Type}} =  uint8\+\_\+t}
+
+
+
+Definition at line \mbox{\hyperlink{_logging_8h_source_l00029}{29}} of file \mbox{\hyperlink{_logging_8h_source}{Logging.\+h}}.
+

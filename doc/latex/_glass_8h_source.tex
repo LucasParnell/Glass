@@ -1,0 +1,58 @@
+\hypertarget{_glass_8h_source}{}\doxysection{Glass.\+h}
+\label{_glass_8h_source}\index{lib/Base/Glass.h@{lib/Base/Glass.h}}
+\mbox{\hyperlink{_glass_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00001}00001 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00002}00002 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00003}00003 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00004}00004 \textcolor{preprocessor}{\#include "{}glass\_export.h"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00005}00005 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00006}\mbox{\hyperlink{_glass_8h_ac203b64c0edef3702d707aed38ab024a}{00006}} \textcolor{preprocessor}{\#define TINYGLTF\_IMPLEMENTATION}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00007}\mbox{\hyperlink{_glass_8h_a18372412ad2fc3ce1e3240b3cf0efe78}{00007}} \textcolor{preprocessor}{\#define STB\_IMAGE\_IMPLEMENTATION}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00008}\mbox{\hyperlink{_glass_8h_aefe397a94e8feddc652f92ef40ce9597}{00008}} \textcolor{preprocessor}{\#define STB\_IMAGE\_WRITE\_IMPLEMENTATION}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00009}00009 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00010}00010 \textcolor{preprocessor}{\#include <cstdint>}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00011}00011 \textcolor{preprocessor}{\#include "{}glad/glad.h"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00012}00012 \textcolor{preprocessor}{\#include "{}GLFW/glfw3.h"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00013}00013 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_result_8h}{Result.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00014}00014 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_window_8h}{Window.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00015}00015 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_entity_manager_8h}{Managers/EntityManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00016}00016 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_component_manager_8h}{Managers/ComponentManager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00017}00017 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_render_system_8h}{Rendering/RenderSystem.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00018}00018 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_logging_8h}{Logging.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00019}00019 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00020}\mbox{\hyperlink{namespace_base}{00020}} \textcolor{keyword}{namespace }\mbox{\hyperlink{namespace_base}{Base}} \{}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00021}00021 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00022}\mbox{\hyperlink{class_base_1_1_glass}{00022}}     \textcolor{keyword}{class }\mbox{\hyperlink{class_base_1_1_glass}{Glass}} \{}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00023}00023     \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00024}00024 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00025}\mbox{\hyperlink{class_base_1_1_glass_a6ab9809c84efe5c196821ce5c5d4946b}{00025}}         GLASS\_EXPORT \mbox{\hyperlink{class_base_1_1_glass_a6ab9809c84efe5c196821ce5c5d4946b}{Glass}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00027}00027         GLASS\_EXPORT \mbox{\hyperlink{class_base_1_1_glass_a624eb9567c1b66c83d4a349e67fc3d80}{\string~Glass}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00028}00028 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00029}00029         \textcolor{comment}{//Create an OpenGL context with given parameters}}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00030}00030         GLASS\_EXPORT \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Result}} \mbox{\hyperlink{class_base_1_1_glass_a9931510ce252ec3d7b5567bbfedf5cda}{iCreateWindow}}(\mbox{\hyperlink{class_base_1_1_window}{Window}} \&window);}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00031}00031 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00032}00032         GLASS\_EXPORT \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Result}} \mbox{\hyperlink{class_base_1_1_glass_a90d2169200073bf91f1d27c33cb2a948}{iBeginEngineLoop}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00033}00033 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00034}00034         GLASS\_EXPORT \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Result}} \mbox{\hyperlink{class_base_1_1_glass_ad45f75ef1659fc1f3c037e108091655d}{iSerialiseEntity}}(\textcolor{keyword}{const} \mbox{\hyperlink{_component_manager_8h_a18e2f82df6ca85bd61dafc6b8af536dd}{Entity}} \&entity);}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00035}00035 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00036}00036         GLASS\_EXPORT \mbox{\hyperlink{struct_managers_1_1_component_manager}{Managers::ComponentManager}} *\mbox{\hyperlink{class_base_1_1_glass_ad4f32bd893a627b1f3e68b766449db33}{pGetComponentManager}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00037}00037 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00038}00038         GLASS\_EXPORT \mbox{\hyperlink{class_managers_1_1_entity_manager}{Managers::EntityManager}} *\mbox{\hyperlink{class_base_1_1_glass_af4c2152222d62753ae6561dda50c9af9}{pGetEntityManager}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00039}00039 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00040}00040         GLASS\_EXPORT \mbox{\hyperlink{class_rendering_1_1_render_system}{Rendering::RenderSystem}} *\mbox{\hyperlink{class_base_1_1_glass_ae64f43c65bf3c6f945631d06c61bd99e}{pGetRenderSystem}}();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00041}00041 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00042}00042     \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00043}00043 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00044}00044         \mbox{\hyperlink{namespace_base_acee2c47ab9c666f0abb81c6913dd5b30}{Result}} iCleanup();}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00045}00045 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00046}00046         \mbox{\hyperlink{struct_managers_1_1_component_manager}{Managers::ComponentManager}} mComponentManager;}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00047}00047         \mbox{\hyperlink{class_managers_1_1_entity_manager}{Managers::EntityManager}} mEntityManager;}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00048}00048         \mbox{\hyperlink{class_rendering_1_1_render_system}{Rendering::RenderSystem}} mRenderSystem;}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00049}00049         \mbox{\hyperlink{class_base_1_1_window}{Window}} mWindow\{\};}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00050}00050 }
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00051}00051     \};}
+\DoxyCodeLine{\Hypertarget{_glass_8h_source_l00052}00052 \}}
+
+\end{DoxyCode}

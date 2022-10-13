@@ -6,8 +6,23 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
 void mouse_callback(GLFWwindow *window, double xpos, double ypos);
 
+using Base::Glass;
 
-Result Glass::iCreateWindow(Window &window) {
+Glass::Glass() = default;
+
+Glass::~Glass() {
+    Result status = iCleanup();
+    if (status != Result::STATUS_OK)
+        MLOG(LOG_WARN, "There was an error during cleanup");
+}
+
+Base::Result Glass::iCleanup() {
+    glfwTerminate();
+    return Result::STATUS_OK;
+}
+
+
+Base::Result Glass::iCreateWindow(Window &window) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -18,7 +33,7 @@ Result Glass::iCreateWindow(Window &window) {
     int height = window.height;
 
     switch (window.fullscreenType) {
-        case Window::kBorderless: {
+        case Window::Enabled: {
             monitor = glfwGetPrimaryMonitor();
             const GLFWvidmode *mode = glfwGetVideoMode(monitor);
             glfwWindowHint(GLFW_RED_BITS, mode->redBits);
@@ -29,19 +44,24 @@ Result Glass::iCreateWindow(Window &window) {
             height = mode->height;
             break;
         }
-        case Window::kEnabled: {
+        case Window::Borderless: {
+            glfwWindowHint(GLFW_DECORATED, GLFW_FALSE);
             monitor = glfwGetPrimaryMonitor();
             const GLFWvidmode *mode = glfwGetVideoMode(monitor);
             width = mode->width;
-            height = mode->height;
+            height = mode->height + 1;
+            monitor = nullptr;
+            break;
         }
         default:
+            glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
             break;
 
     }
 
     //Create a new window with the supplied parameters
     GLFWwindow *sWindow = glfwCreateWindow(width, height, window.title, monitor, nullptr);
+
 
     if (sWindow == nullptr) {
         MLOG(LOG_ERROR, "Could not create window");
@@ -51,7 +71,7 @@ Result Glass::iCreateWindow(Window &window) {
 
     glfwMakeContextCurrent(sWindow);
     glfwSetFramebufferSizeCallback(sWindow, framebuffer_size_callback);
-
+    glfwSwapInterval(0);
     // glad: load all OpenGL function pointers
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
         MLOG(LOG_ERROR, "Could not initialize GLAD");
@@ -61,10 +81,12 @@ Result Glass::iCreateWindow(Window &window) {
     window.SetWindow(sWindow);
     mWindow = window;
 
+    mRenderSystem.SetWindow(&window);
+
     return Result::STATUS_OK;
 }
 
-Result Glass::iBeginEngineLoop() {
+Base::Result Glass::iBeginEngineLoop() {
     //Set up engine for loop
 
     GLFWwindow *pWindow = mWindow.pGetWindow();
@@ -82,9 +104,9 @@ Result Glass::iBeginEngineLoop() {
     glEnable(GL_CULL_FACE);
 
     //Setup frame-time counter
-    double currentTime = 0;
+    double currentTime;
     double previousTime = 0;
-    double timeDelta = 0;
+    double timeDelta;
 
     while (!glfwWindowShouldClose(pWindow)) {
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -101,7 +123,7 @@ Result Glass::iBeginEngineLoop() {
         if (glfwGetKey(pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(pWindow, true);
 
-        Camera *pCamera = Camera::pGetMainCamera();
+        Components::Camera *pCamera = Components::Camera::pGetMainCamera();
         const float cameraSpeed = 2.0f * (float) timeDelta; // adjust accordingly
         if (glfwGetKey(pWindow, GLFW_KEY_W) == GLFW_PRESS)
             pCamera->transform->position += cameraSpeed * pCamera->front;
@@ -124,31 +146,30 @@ Result Glass::iBeginEngineLoop() {
     return Result::STATUS_OK;
 }
 
-Glass::~Glass() {
-    Result status = iCleanup();
-    if (status != Result::STATUS_OK)
-        MLOG(LOG_WARN, "There was an error during cleanup");
-}
 
-Result Glass::iCleanup() {
-    glfwTerminate();
-    return Result::STATUS_OK;
-}
-
-ComponentManager * Glass::pGetComponentManager() {
+Managers::ComponentManager *Glass::pGetComponentManager() {
     return &mComponentManager;
 }
 
-EntityManager * Glass::pGetEntityManager() {
+Managers::EntityManager *Glass::pGetEntityManager() {
     return &mEntityManager;
 }
 
-RenderSystem * Glass::pGetRenderSystem() {
+Rendering::RenderSystem *Glass::pGetRenderSystem() {
     return &mRenderSystem;
 }
 
-Window * Glass::pGetWindow() {
-    return &mWindow;
+Base::Result Glass::iSerialiseEntity(const Entity &entity) {
+    json ex3 = {
+            {"name", entity},
+            {"components",}
+    };
+    std::vector<std::uint8_t> v_cbor = json::to_cbor(ex3);
+    std::ofstream outputFile("CoolWorld/" + entity + ".ged");
+    outputFile << v_cbor.data();
+
+
+    return Result::STATUS_OK;
 }
 
 //Replace this
@@ -162,10 +183,10 @@ auto lastY = 1440 / 2;
 bool firstMouse = true;
 
 void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
-    auto camera = Camera::pGetMainCamera();
+    auto camera = Components::Camera::pGetMainCamera();
     if (firstMouse) {
-        lastX = xpos;
-        lastY = ypos;
+        lastX = (int) xpos;
+        lastY = (int) ypos;
         firstMouse = false;
     }
 
@@ -188,5 +209,3 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
 }
 
 
-Glass::Glass() {
-}

@@ -1,0 +1,34 @@
+\hypertarget{_texture_loader_8cc_source}{}\doxysection{Texture\+Loader.\+cc}
+\label{_texture_loader_8cc_source}\index{lib/Loaders/TextureLoader.cc@{lib/Loaders/TextureLoader.cc}}
+\mbox{\hyperlink{_texture_loader_8cc}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_texture_loader_8h}{TextureLoader.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{class_loaders_1_1_texture_loader}{Loaders::TextureLoader}};}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00005}00005 \mbox{\hyperlink{struct_components_1_1_texture}{Components::Texture}} \_cdecl TextureLoader::teCreateTexture(\textcolor{keyword}{const} \textcolor{keywordtype}{char} *texDir) \{}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00006}00006     std::vector<unsigned char> buffer;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00007}00007     \textcolor{keywordtype}{unsigned} width, height;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00008}00008     \textcolor{keywordtype}{unsigned} error = lodepng::decode(buffer, width, height, texDir);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00009}00009     uint32\_t iTexture;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00010}00010     \textcolor{keywordflow}{if} (!error)\{}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00011}00011         glGenTextures(1, \&iTexture);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00012}00012         glActiveTexture(GL\_TEXTURE0);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00013}00013         glBindTexture(GL\_TEXTURE\_2D, iTexture);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00014}00014         \textcolor{comment}{// set the texture wrapping/filtering options (on the currently bound texture object}}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00015}00015         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_S, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00016}00016         glTexParameteri(GL\_TEXTURE\_2D, GL\_TEXTURE\_WRAP\_T, GL\_CLAMP\_TO\_EDGE);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00017}00017         glTexParameterf(GL\_TEXTURE\_2D, GL\_TEXTURE\_MIN\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00018}00018         glTexParameterf(GL\_TEXTURE\_2D, GL\_TEXTURE\_MAG\_FILTER, GL\_NEAREST);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00019}00019         glTexImage2D(GL\_TEXTURE\_2D, 0, GL\_RGBA, width, height, 0, GL\_RGBA, GL\_UNSIGNED\_BYTE, \&buffer[0]);}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00020}00020     \} \textcolor{keywordflow}{else} \{}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00021}00021         \mbox{\hyperlink{_logging_8h_aa90264ca0e098c118333fa07ca658d6d}{MLOG}}(\mbox{\hyperlink{_logging_8h_aced66975c154ea0e2a8ec3bc818b4e08}{LOG\_ERROR}}, \textcolor{stringliteral}{"{}Error loading texture: "{}} + std::string(lodepng\_error\_text(error)));}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00022}00022     \}}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00023}00023     \mbox{\hyperlink{struct_components_1_1_texture}{Components::Texture}} texture;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00024}00024     texture.\mbox{\hyperlink{struct_components_1_1_texture_a1e13a87271876a1547aa06fa93fa7a9d}{ID}} = iTexture;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00025}00025     texture.\mbox{\hyperlink{struct_components_1_1_texture_a1c7d3869160d3f8374e6722270eae1b2}{loaded}} = \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00027}00027     \textcolor{keywordflow}{return} texture;}
+\DoxyCodeLine{\Hypertarget{_texture_loader_8cc_source_l00028}00028     \}}
+
+\end{DoxyCode}

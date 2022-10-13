@@ -1,0 +1,39 @@
+\hypertarget{_camera_8cpp_source}{}\doxysection{Camera.\+cpp}
+\label{_camera_8cpp_source}\index{lib/Components/Camera.cpp@{lib/Components/Camera.cpp}}
+\mbox{\hyperlink{_camera_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00001}00001 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00002}00002 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00003}00003 \textcolor{keyword}{using }\mbox{\hyperlink{class_components_1_1_camera}{Components::Camera}};}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00004}00004 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00005}\mbox{\hyperlink{class_components_1_1_camera_a8820d42004b856e538db10e21e53be15}{00005}} \mbox{\hyperlink{class_components_1_1_camera_a8820d42004b856e538db10e21e53be15}{Camera::Camera}}(\mbox{\hyperlink{struct_components_1_1_transform}{Transform}} *transform) \{}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00006}00006     \mbox{\hyperlink{struct_components_1_1_i_component_a0cbbe3636b9e269d05dcbf3dcab16e51}{componentType}} = \mbox{\hyperlink{struct_components_1_1_i_component_a6c77f4684eddcaf7eae8a2614ce5162ea342096d317348e9b4a6d0b639f09d8c9}{CAMERA}};}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00007}00007     mainCamera = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00008}00008     this-\/>transform = \mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}};}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00009}00009     \mbox{\hyperlink{class_components_1_1_camera_ae94de322124a68e32113235eeec78008}{UpdateVectors}}();}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00010}00010 \}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00011}00011 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00012}\mbox{\hyperlink{class_components_1_1_camera_ae94de322124a68e32113235eeec78008}{00012}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_components_1_1_camera_ae94de322124a68e32113235eeec78008}{Camera::UpdateVectors}}() \{}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00013}00013     \textcolor{comment}{// calculate the new Front vector}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00014}00014     \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}.x = cos(glm::radians(\mbox{\hyperlink{class_components_1_1_camera_a0067032f4d32724d6788d3ddd5d34e87}{yaw}})) * cos(glm::radians(\mbox{\hyperlink{class_components_1_1_camera_aaae6e7026afcae10864a34575161582d}{pitch}}));}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00015}00015     \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}.y = sin(glm::radians(\mbox{\hyperlink{class_components_1_1_camera_aaae6e7026afcae10864a34575161582d}{pitch}}));}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00016}00016     \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}.z = sin(glm::radians(\mbox{\hyperlink{class_components_1_1_camera_a0067032f4d32724d6788d3ddd5d34e87}{yaw}})) * cos(glm::radians(\mbox{\hyperlink{class_components_1_1_camera_aaae6e7026afcae10864a34575161582d}{pitch}}));}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00017}00017     \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}} = glm::normalize(\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}});}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00018}00018 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00019}00019     \mbox{\hyperlink{class_components_1_1_camera_a71a60d8ab979b8c82d900312cb80aeac}{right}} = glm::normalize(glm::cross(\mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}, \mbox{\hyperlink{class_components_1_1_camera_a74478108c3b532f600c53755efece3a0}{worldUp}}));}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00020}00020     \mbox{\hyperlink{class_components_1_1_camera_aa385c8269675a3bbe8751ba6415405d3}{up}} = glm::normalize(glm::cross(\mbox{\hyperlink{class_components_1_1_camera_a71a60d8ab979b8c82d900312cb80aeac}{right}}, \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}));}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00021}00021 \}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00022}00022 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00023}\mbox{\hyperlink{class_components_1_1_camera_a960ce51987a4c7d9e14df6ee30bc3825}{00023}} glm::mat4 \mbox{\hyperlink{class_components_1_1_camera_a960ce51987a4c7d9e14df6ee30bc3825}{Camera::m4GetView}}()\textcolor{keyword}{ const }\{}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00024}00024     \textcolor{keywordflow}{return} glm::lookAt(\mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}}, \mbox{\hyperlink{class_components_1_1_camera_a6137f18ef26256aea23726539fdd8806}{transform}}-\/>\mbox{\hyperlink{struct_components_1_1_transform_a86fbbbcdf4a57975adb2d0b7b70a3a11}{position}} + \mbox{\hyperlink{class_components_1_1_camera_a514c12ea58565b306311eb46571872ab}{front}}, \mbox{\hyperlink{class_components_1_1_camera_aa385c8269675a3bbe8751ba6415405d3}{up}});}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00025}00025 \}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00026}00026 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00027}\mbox{\hyperlink{class_components_1_1_camera_a272ec8b3bcf121fb7e232a4874c44bac}{00027}} \textcolor{keywordtype}{void} \mbox{\hyperlink{class_components_1_1_camera_a272ec8b3bcf121fb7e232a4874c44bac}{Camera::MakeMainCamera}}() \{}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00028}00028     mainCamera = \textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00029}00029 \}}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00030}00030 }
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00031}\mbox{\hyperlink{class_components_1_1_camera_af9f8bbf9c26f85e3cae5be7c037c72d8}{00031}} \mbox{\hyperlink{class_components_1_1_camera}{Camera}} *\mbox{\hyperlink{class_components_1_1_camera_af9f8bbf9c26f85e3cae5be7c037c72d8}{Camera::pGetMainCamera}}() \{}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00032}00032     \textcolor{keywordflow}{return} mainCamera;}
+\DoxyCodeLine{\Hypertarget{_camera_8cpp_source_l00033}00033 \}}
+
+\end{DoxyCode}
