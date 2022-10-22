@@ -11,21 +11,42 @@
 #define SIZE_FILETABLE 0x1000
 #define SIZE_FILEHEADER 0xA5
 
-struct FileEntry {
-    std::string name;
-    long offset;
-};
+namespace Filesystem {
 
-class VFS {
- public:
-    enum FileMode {
-        Read,
-        Write
+    struct FileEntry {
+        std::string name;
+        std::string base_file;
+        long offset;
+        long size;
     };
-    static Base::Result GLASS_EXPORT Mount(std::string filename);
-    static Base::Result GLASS_EXPORT ListAll();
-    static Base::Result GLASS_EXPORT ReadToString(std::string* string, std::string filename);
- private:
-    inline static std::unordered_map<std::string, std::vector<FileEntry>> mountMap;
-};
 
+    struct PopulatedFileEntry : public FileEntry {
+        unsigned char* buffer{};
+    };
+
+
+    class VFS {
+    public:
+        enum FileMode {
+            Read,
+            Write
+        };
+
+        static PopulatedFileEntry GLASS_EXPORT Load(std::string mountpoint, std::string filename);
+
+        static Base::Result GLASS_EXPORT Mount(const std::string& filename);
+
+        static Base::Result GLASS_EXPORT ListAll();
+
+        static std::string GLASS_EXPORT ReadToString(std::string mountpoint, std::string filename);
+
+        static Base::Result GLASS_EXPORT Unload(PopulatedFileEntry *pfe);
+
+
+    private:
+        inline static std::unordered_map<std::string, std::vector<FileEntry>> mountMap;
+
+
+    };
+
+}

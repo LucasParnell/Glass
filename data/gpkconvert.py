@@ -1,3 +1,4 @@
+from email.mime import base
 from enum import Enum
 
 import os
@@ -55,13 +56,17 @@ class GPK:
                 self.buffer = file.read()
                 file.close()
                 file = open(self.target, "wb")
- 
+
             else:
  
                 file = open(self.target, "wb")
                 baseHeader = BaseHeader
                 baseHeader.isCompressed = True
-                baseHeader.name = bytes("Test".encode('ascii')) + b"    "
+                baseHeader.name = bytes("Test".encode('ascii'))
+                if len(baseHeader.name) > 8:
+                    print("BaseHeader, Name too long (Must be <= 8 Bytes)")
+                    exit()
+                baseHeader.name += b"\x00" * (8 - len(baseHeader.name))
                 baseHeader.entries = 0
                 self.buffer = b"GPAK" + bytes(baseHeader.isCompressed) + bytes(baseHeader.name) + baseHeader.entries.to_bytes(4, byteorder='little')
                 LenFileTable = 0x1000
@@ -85,7 +90,7 @@ class GPK:
         #Bin format
         padMountPoint = b"\x00" * (128 - len(fileHeader.mountPoint) - 2)
         padName = b"\x00" * (32 - len(fileHeader.name))
-        binFileHeader = fileHeader.mountPoint + bytes("\\a", encoding='ASCII') + padMountPoint + fileHeader.name + padName + bytes(fileHeader.isCompressed) + fileHeader.size.to_bytes(4, byteorder='little')
+        binFileHeader = fileHeader.mountPoint + bytes("\\", encoding='ASCII') + padMountPoint + fileHeader.name + padName + bytes(fileHeader.isCompressed) + fileHeader.size.to_bytes(4, byteorder='little')
 
 
         #Find last file entry

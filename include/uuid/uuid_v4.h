@@ -236,8 +236,8 @@ class UUID {
 template <typename RNG>
 class UUIDGenerator {
   public:
-#undef min()
-#undef max()
+#undef min
+#undef max
     UUIDGenerator() : generator(new RNG(std::random_device()())), distribution(std::numeric_limits<uint64_t>::min(), std::numeric_limits<uint64_t>::max())
     {}
 

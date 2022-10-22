@@ -109,7 +109,7 @@ Base::Result Glass::iBeginEngineLoop() {
     double timeDelta;
 
     while (!glfwWindowShouldClose(pWindow)) {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClearColor((float)((1.0/255)*181), (float)((1.0/255)*101), (float)((1.0/255)*147), 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         currentTime = glfwGetTime();

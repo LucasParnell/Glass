@@ -1,8 +1,11 @@
 #include "RenderSystem.h"
 
+
 #define BUFFER_OFFSET(i) ((char *)NULL + (i))
 
 using namespace Rendering;
+
+using Filesystem::VFS;
 
 RenderSystem::RenderSystem() = default;
 
@@ -10,79 +13,6 @@ void RenderSystem::SetWindow(Base::Window *window){
     this->window = window;
 }
 
-Components::Shader RenderSystem::LoadObject(Components::Mesh *meshToLoad, std::string shaderName) {
-
-    mesh = meshToLoad;
-
-    auto shader = new Components::Shader();
-
-    int loadedId = -1;
-
-    for (auto &loadedShader: loadedShaders) {
-        if (loadedShader.first == shaderName)
-            loadedId = (int) loadedShader.second;
-    }
-
-    if (loadedId == -1) {
-        std::ifstream frag("CoolWorld/" + shaderName + ".frag");
-        std::stringstream fragBuffer;
-        fragBuffer << frag.rdbuf();
-
-        //TODO(Split filename into mountpoint and directory)
-        std::string outputBuffer;
-        VFS::ReadToString(&outputBuffer, "GamePak:\\textures\\rock.png");
-
-        std::ifstream vert("CoolWorld/" + shaderName + ".vert");
-        std::stringstream vertBuffer;
-        vertBuffer << vert.rdbuf();
-
-        auto a = vertBuffer.str();
-        auto b = fragBuffer.str();
-
-        const char *vertStr = a.c_str();
-        const char *fragStr = b.c_str();
-
-        unsigned int vertexShader;
-        vertexShader = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertexShader, 1, &vertStr, nullptr);
-        glCompileShader(vertexShader);
-
-        unsigned int fragmentShader;
-        fragmentShader = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragmentShader, 1, &fragStr, nullptr);
-        glCompileShader(fragmentShader);
-
-
-        shader->ID = glCreateProgram();
-
-        glAttachShader(shader->ID, vertexShader);
-        glAttachShader(shader->ID, fragmentShader);
-        glLinkProgram(shader->ID);
-
-        GLint success;
-
-        glGetProgramiv(shader->ID, GL_LINK_STATUS, &success);
-
-        if (!success) {
-            std::vector<GLchar> errorLog(512);
-            glGetProgramInfoLog(shader->ID, 512, nullptr, &errorLog[0]);
-            MLOG(LOG_ERROR, "\n" + std::string(&errorLog[0]));
-        }
-
-        glUseProgram(shader->ID);
-        glDeleteShader(vertexShader);
-        glDeleteShader(fragmentShader);
-
-        loadedShaders.emplace_back(shaderName, shader->ID);
-    } else {
-        shader->ID = loadedId;
-    }
-
-    ParseCamera(shader->ID);
-
-
-    return *shader;
-}
 
 void RenderSystem::ParseCamera(uint32_t shaderID) {
     //TODO(ADD FUNCTION TO PASS IN WINDOW)
@@ -147,17 +77,19 @@ void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntit
         bool textureLoaded = false;
         GLuint texture;
 
-        for(auto& p_component : pComponentManager->components){
+        for(auto &component : pComponentManager->entityComponents[entity]){
+            auto p_component = pComponentManager->GetComponentPtr(component);
             //Could replace these with integers and use switch
             auto name = p_component->GetTypeInfo().Name();
             switch(Base::Utils::hash(name.c_str(), name.size())){
                 case (Base::Utils::hash("Components::Transform", 21)): {
                     auto *transform = (Components::Transform *) p_component;
-                    glm::translate(model, transform->position);
+                    model = glm::translate(model, transform->position);
                     break;
                 }
                 case (Base::Utils::hash("Components::Shader", 18)): {
                     shader = (Components::Shader *) p_component;
+                    mesh = shader->meshToLoad;
                     break;
                 }
                 case (Base::Utils::hash("Components::Texture", 19)): {
@@ -184,8 +116,9 @@ void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntit
             glBindTexture(GL_TEXTURE_2D, texture);
         }
 
-        ParseCamera(shader->ID);
         SetMat4("model", model, shader->ID);
+        ParseCamera(shader->ID);
+
 
         DrawModel(mesh->vaoAndEbos, mesh->model);
         glBindVertexArray(0);

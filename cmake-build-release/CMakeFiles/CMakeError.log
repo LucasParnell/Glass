@@ -1,0 +1,18 @@
+Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED_ATTR failed with the following output:
+Change Dir: C:/Users/lucas/Documents/Projects/Glass/cmake-build-release/CMakeFiles/CMakeTmp
+
+Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_b75d4 && [1/2] Building CXX object CMakeFiles\cmTC_b75d4.dir\src.cxx.obj
+FAILED: CMakeFiles/cmTC_b75d4.dir/src.cxx.obj 
+C:\PROGRA~1\MICROS~4\2022\COMMUN~1\VC\Tools\MSVC\1433~1.316\bin\Hostx86\x64\cl.exe  /nologo /TP -DCOMPILER_HAS_DEPRECATED_ATTR  /DWIN32 /D_WINDOWS /EHsc  /Zi /Ob0 /Od /RTC1 -MDd -std:c++20 /showIncludes /FoCMakeFiles\cmTC_b75d4.dir\src.cxx.obj /FdCMakeFiles\cmTC_b75d4.dir\ /FS -c C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(1): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(1): error C2065: '__deprecated__': undeclared identifier
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(1): error C2062: type 'int' unexpected
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(1): error C2143: syntax error: missing ';' before '{'
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(1): error C2447: '{': missing function header (old-style formal list?)
+C:\Users\lucas\Documents\Projects\Glass\cmake-build-release\CMakeFiles\CMakeTmp\src.cxx(2): error C3861: 'somefunc': identifier not found
+ninja: build stopped: subcommand failed.
+
+
+Source file was:
+__attribute__((__deprecated__)) int somefunc() { return 0; }
+    int main() { return somefunc();}

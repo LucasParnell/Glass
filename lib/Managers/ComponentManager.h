@@ -6,6 +6,7 @@
 #include <map>
 #include "Components/IComponent.h"
 #include "Base/Logging.h"
+#include "Components/IComponentFactory/IComponentFactory.h"
 
 using Entity = std::string;
 using Component = uint32_t;
@@ -23,11 +24,10 @@ namespace Managers {
             components.reserve(2048);
         }
 
-        template<class iComponent>
-        __declspec(dllexport)  Component __cdecl RegisterComponent() {
+        __declspec(dllexport)  Component __cdecl RegisterComponent(std::string typeName) {
             auto component = (Component) components.size();
-
-            components.push_back(new iComponent());
+            auto obj = IComponentFactory::createInstance(typeName);
+            components.push_back(obj);
             return component;
         }
 

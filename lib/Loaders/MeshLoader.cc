@@ -4,31 +4,34 @@
 
 using Loaders::MeshLoader;
 
-Components::Mesh MeshLoader::meCreateMesh(const char *meshDir) {
+Base::Result MeshLoader::meCreateMesh(Components::Mesh &baseMesh, const std::string& mountpoint, const std::string& filename) {
 
-    std::string inputFile = "CoolWorld/" + std::string(meshDir) + ".glb";
-
-    auto baseMesh = new Components::Mesh();
 
     tinygltf::Model model;
 
-    bLoadModel(model, inputFile.c_str());
+    bLoadModel(model, mountpoint, filename);
 
     std::pair<GLuint, std::map<int, GLuint>> vaoAndEbos = bindModel(model);
 
-    baseMesh->vaoAndEbos = vaoAndEbos;
-    baseMesh->model = model;
+    baseMesh.vaoAndEbos = vaoAndEbos;
+    baseMesh.model = model;
 
-    return *baseMesh;
+    return Base::Result::STATUS_OK;
 
 }
 
-bool MeshLoader::bLoadModel(tinygltf::Model &model, const char *filename) {
+bool MeshLoader::bLoadModel(tinygltf::Model &model, const std::string& mountpoint, const std::string& filename) {
     tinygltf::TinyGLTF loader;
     std::string err;
     std::string warn;
 
-    bool res = loader.LoadBinaryFromFile(&model, &err, &warn, filename);
+    //Filename is mountpoint
+    auto a = Filesystem::VFS::Load(mountpoint, filename);
+
+
+
+    bool res = loader.LoadBinaryFromMemory(&model, &err, &warn, a.buffer, a.size);
+
     if (!warn.empty()) {
         std::cout << "WARN: " << warn << std::endl;
     }
@@ -39,12 +42,12 @@ bool MeshLoader::bLoadModel(tinygltf::Model &model, const char *filename) {
 
     if (!res)
         std::cout << "Failed to load glTF: " << filename << std::endl;
-    else
-        std::cout << "Loaded glTF: " << filename << std::endl;
+
 
     return res;
 }
 
+//TODO(REWRITE THIS, VERY TEMPORARY)
 void MeshLoader::bindMesh(std::map<int, GLuint> &vbos, tinygltf::Model &model, tinygltf::Mesh &mesh) {
     for (size_t i = 0; i < model.bufferViews.size(); ++i) {
         const tinygltf::BufferView &bufferView = model.bufferViews[i];
@@ -55,16 +58,11 @@ void MeshLoader::bindMesh(std::map<int, GLuint> &vbos, tinygltf::Model &model, t
         }
 
         const tinygltf::Buffer &buffer = model.buffers[bufferView.buffer];
-        std::cout << "bufferview.target " << bufferView.target << std::endl;
 
         GLuint vbo;
         glGenBuffers(1, &vbo);
         vbos[i] = vbo;
         glBindBuffer(bufferView.target, vbo);
-
-        std::cout << "buffer.data.size = " << buffer.data.size()
-                  << ", bufferview.byteOffset = " << bufferView.byteOffset
-                  << std::endl;
 
         glBufferData(bufferView.target, bufferView.byteLength,
                      &buffer.data.at(0) + bufferView.byteOffset, GL_STATIC_DRAW);

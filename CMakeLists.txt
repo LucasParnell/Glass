@@ -15,7 +15,7 @@ add_library(Glass SHARED
         lib/Managers/EntityManager.h lib/Loaders/MeshLoader.cc lib/Loaders/MeshLoader.h
         lib/Rendering/RenderSystem.cc lib/Rendering/RenderSystem.h lib/Components/Shader.h
         lib/Base/Window.h lib/Base/Result.h lib/Base/Window.cc lib/Loaders/TextureLoader.cc lib/Loaders/TextureLoader.h
-        lib/Components/Camera.h lib/Components/Camera.cpp lib/Base/Reflectable.h lib/Base/Utils.h lib/Filesystem/Vfs.cc lib/Filesystem/Vfs.h)
+        lib/Components/Camera.h lib/Components/Camera.cpp lib/Base/Reflectable.h lib/Base/Utils.h lib/Filesystem/Vfs.cc lib/Filesystem/Vfs.h lib/Components/IComponentFactory/IComponentFactory.h lib/Components/Mesh.cc lib/Components/Shader.cc lib/Components/Texture.cc lib/Components/Transform.cc lib/Components/IComponentFactory/IComponentFactory.cc lib/Components/IComponentFactory/DerivedRegister.h lib/Loaders/ShaderLoader.cc lib/Loaders/ShaderLoader.h)
 
 add_subdirectory(external/refl-cpp-master/)
 

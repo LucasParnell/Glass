@@ -1,0 +1,32 @@
+{
+    "scene_name": "Demo Scene",
+    "scene_camera": {
+        "Transform": ["0","0","0"]
+    },
+    "scene_entities": {
+        "ent_table1": {
+            "Transform": ["-1","0","0"],
+            "Mesh": ["GamePak:\\models\\", "table.glb"],
+            "Texture": ["GamePak:\\textures\\", "table.png"],
+            "Shader": ["GamePak:\\shaders\\", "monkey"]
+        },
+        "ent_table2": {
+            "Transform": ["0","0","-5"],
+            "Mesh": ["GamePak:\\models\\", "table.glb"],
+            "Texture": ["GamePak:\\textures\\", "table.png"],
+            "Shader": ["GamePak:\\shaders\\", "monkey"]
+        },
+        "ent_table3": {
+            "Transform": ["1","0","0"],
+            "Mesh": ["GamePak:\\models\\", "table.glb"],
+            "Texture": ["GamePak:\\textures\\", "table.png"],
+            "Shader": ["GamePak:\\shaders\\", "monkey"]
+        },
+        "ent_table4": {
+            "Transform": ["1","1","1"],
+            "Mesh": ["GamePak:\\models\\", "table.glb"],
+            "Texture": ["GamePak:\\textures\\", "table.png"],
+            "Shader": ["GamePak:\\shaders\\", "monkey"]
+        }
+    }
+}

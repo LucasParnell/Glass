@@ -6,6 +6,8 @@
 #include "Loaders/TextureLoader.h"
 #include "Filesystem/Vfs.h"
 
+using Filesystem::VFS;
+
 int main() {
 
     Base::Glass engine;
@@ -28,45 +30,7 @@ int main() {
     VFS::Mount("data\\test.gpk");
     VFS::ListAll();
 
-    //Make camera
-    auto camera = entityMan->CreateEntity();
-    auto camera_transform = compMan->RegisterComponent<Components::Transform>();
-    auto cam_transform_ptr = (Components::Transform *) (compMan->GetComponentPtr(camera_transform));
-    auto lCamera = new Components::Camera(cam_transform_ptr);
-
-    cam_transform_ptr->position.z -= 1.0f;
-    lCamera->UpdateVectors();
-
-    //Make monkey
-    auto monkey = entityMan->CreateEntity();
-
-    //Register components
-    auto monkey_transform = compMan->RegisterComponent<Components::Transform>();
-    auto monkey_mesh = compMan->RegisterComponent<Components::Mesh>();
-    auto monkey_shader = compMan->RegisterComponent<Components::Shader>();
-    auto monkey_texture = compMan->RegisterComponent<Components::Texture>();
-
-    //Add components to monkey
-    compMan->AddComponent(monkey, monkey_transform);
-    compMan->AddComponent(monkey, monkey_mesh);
-    compMan->AddComponent(monkey, monkey_shader);
-    compMan->AddComponent(monkey, monkey_texture);
-
-    //Load mesh and shader
-    Loaders::MeshLoader ml;
-    Loaders::TextureLoader tl;
-    Components::Mesh monkey_lMesh = ml.meCreateMesh("table");
-    Components::Texture monkey_lTexture = tl.teCreateTexture("CoolWorld/rock.png");
-
-    //TODO(Make Shader Loader):
-    Components::Shader monkey_lShader = renderer->LoadObject(&monkey_lMesh, "monkey");
-
-
-    //Store actual objects
-    compMan->SetComponent(monkey_mesh, &monkey_lMesh);
-    compMan->SetComponent(monkey_shader, &monkey_lShader);
-    compMan->SetComponent(monkey_texture, &monkey_lTexture);
-
+    entityMan->ConstructGSD("GamePak:\\scenes\\", "demo_scene.gsd", compMan, *renderer);
 
     engine.iBeginEngineLoop();
 }

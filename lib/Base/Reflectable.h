@@ -49,3 +49,5 @@ public:
     { \
         return TypeInfo::Get<::refl::trait::remove_qualifiers_t<decltype(*this)>>(); \
     }
+
+

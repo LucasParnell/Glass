@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="Test" targetName="Glass" />
+      <config projectName="Test" targetName="Test" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Release" ENABLED="true" CONFIG_NAME="Release" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="eb80b71a-c9d2-492f-91f1-adbba7d225f3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/Glass.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/IComponentFactory/DerivedRegister.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/IComponentFactory/IComponentFactory.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/IComponentFactory/IComponentFactory.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/Mesh.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/Shader.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Components/Transform.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Loaders/ShaderLoader.cc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/Loaders/ShaderLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-6e68bd289c3bbc687f5f.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2022-09-23T23-21-41-0996.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-Glass-Debug-913b99d56fb6f9b3385a.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/external/glad/glad.c.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/external/glad/glad.c.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/external/lodepng/lodepng.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/external/lodepng/lodepng.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Base/Glass.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Base/Glass.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Base/Window.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Base/Window.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Components/Camera.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Components/Camera.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Filesystem/Vfs.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Filesystem/Vfs.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Loaders/MeshLoader.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Loaders/MeshLoader.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Loaders/TextureLoader.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Loaders/TextureLoader.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Managers/EntityManager.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Managers/EntityManager.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Rendering/RenderSystem.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/lib/Rendering/RenderSystem.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Glass.dir/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/tests/main.cc.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/tests/main.cc.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Test.dir/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Glass.dll" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Glass.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Glass.exp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Glass.exp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Glass.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Glass.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Glass.lib" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Glass.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Glass.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Glass.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.exp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.exp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.ilk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.ilk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.lib" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.lib" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Test.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Test.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/gpkconvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/gpkconvert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/root/models/table.glb" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/root/models/table.glb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/data/test.gpk" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/data/test.gpk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/gpkconvert.py" beforeDir="false" afterPath="$PROJECT_DIR$/data/gpkconvert.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/test.gpk" beforeDir="false" afterPath="$PROJECT_DIR$/data/test.gpk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/tinygltf/tiny_gltf.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/tinygltf/tiny_gltf.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/include/uuid/uuid_v4.h" beforeDir="false" afterPath="$PROJECT_DIR$/include/uuid/uuid_v4.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Base/Glass.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Base/Glass.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Base/Reflectable.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Base/Reflectable.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Camera.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Camera.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Camera.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Camera.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/IComponent.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/IComponent.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Mesh.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Mesh.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Shader.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Shader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Texture.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Texture.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Texture.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Texture.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Components/Transform.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Components/Transform.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Filesystem/Vfs.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Filesystem/Vfs.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Filesystem/Vfs.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Filesystem/Vfs.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Loaders/MeshLoader.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Loaders/MeshLoader.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Loaders/MeshLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Loaders/MeshLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Loaders/TextureLoader.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Loaders/TextureLoader.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Loaders/TextureLoader.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Loaders/TextureLoader.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Managers/ComponentManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Managers/ComponentManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Managers/EntityManager.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Managers/EntityManager.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Managers/EntityManager.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Managers/EntityManager.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Rendering/RenderSystem.cc" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Rendering/RenderSystem.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Rendering/RenderSystem.h" beforeDir="false" afterPath="$PROJECT_DIR$/lib/Rendering/RenderSystem.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/Rendering/Shader.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/main.cc" beforeDir="false" afterPath="$PROJECT_DIR$/tests/main.cc" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Release" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectApplicationVersion">
+    <option name="ide" value="CLion" />
+    <option name="majorVersion" value="2022" />
+    <option name="minorVersion" value="2.3" />
+  </component>
+  <component name="ProjectId" id="2G4uVO6UMPIodHYbSntuvY9yd1v" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "settings.editor.selected.configurable": "CMakeSettings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\lucas\Documents\Projects\Glass\lib\Components\IComponentFactory" />
+    </key>
+  </component>
+  <component name="RunManager" selected="CMake Application.Test">
+    <configuration name="Glass" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Test" TARGET_NAME="Glass" CONFIG_NAME="Release">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Test" TARGET_NAME="Test" CONFIG_NAME="Release" RUN_TARGET_PROJECT_NAME="Test" RUN_TARGET_NAME="Test">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake Application.Glass" />
+      <item itemvalue="CMake Application.Test" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="eb80b71a-c9d2-492f-91f1-adbba7d225f3" name="Changes" comment="" />
+      <created>1665660202658</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665660202658</updated>
+      <workItem from="1665660204335" duration="526000" />
+      <workItem from="1665660953687" duration="963000" />
+      <workItem from="1665663378187" duration="190000" />
+      <workItem from="1665663608367" duration="927000" />
+      <workItem from="1665928836549" duration="3633000" />
+      <workItem from="1665935780005" duration="171000" />
+      <workItem from="1665936049819" duration="1000" />
+      <workItem from="1665936294262" duration="6670000" />
+      <workItem from="1665965389110" duration="16810000" />
+      <workItem from="1666018597393" duration="3548000" />
+      <workItem from="1666034355787" duration="141000" />
+      <workItem from="1666040331487" duration="2651000" />
+      <workItem from="1666262659169" duration="13000" />
+      <workItem from="1666263931152" duration="2758000" />
+      <workItem from="1666311501230" duration="3852000" />
+      <workItem from="1666315604026" duration="990000" />
+      <workItem from="1666358544115" duration="1602000" />
+      <workItem from="1666361619270" duration="89000" />
+      <workItem from="1666377527643" duration="4821000" />
+      <workItem from="1666386857849" duration="594000" />
+      <workItem from="1666388169344" duration="11423000" />
+      <workItem from="1666442926588" duration="1704000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/include/tinygltf/tiny_gltf.h</url>
+          <line>1491</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/Components/Camera.cpp</url>
+          <line>11</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/lib/Rendering/RenderSystem.cc</url>
+          <line>72</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="map" />
+        <watch expression="name" />
+      </configuration>
+    </watches-manager>
+  </component>
+</project>

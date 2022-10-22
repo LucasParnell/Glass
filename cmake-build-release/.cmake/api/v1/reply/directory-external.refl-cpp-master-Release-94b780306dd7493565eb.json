@@ -1,0 +1,98 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install",
+			"include"
+		],
+		"files" : 
+		[
+			"external/refl-cpp-master/cmake/install-rules.cmake",
+			"external/refl-cpp-master/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 34,
+				"parent" : 0
+			},
+			{
+				"file" : 0,
+				"parent" : 1
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 8,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 32,
+				"parent" : 2
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 38,
+				"parent" : 2
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 3,
+			"component" : "refl-cpp_Development",
+			"destination" : "include",
+			"paths" : 
+			[
+				{
+					"from" : "external/refl-cpp-master/include",
+					"to" : "."
+				}
+			],
+			"type" : "directory"
+		},
+		{
+			"backtrace" : 4,
+			"component" : "refl-cpp_Development",
+			"destination" : "lib/cmake/refl-cpp",
+			"paths" : 
+			[
+				"cmake-build-release/external/refl-cpp-master/refl-cpp-config-version.cmake"
+			],
+			"type" : "file"
+		},
+		{
+			"backtrace" : 5,
+			"component" : "refl-cpp_Development",
+			"destination" : "lib/cmake/refl-cpp",
+			"exportName" : "refl-cppTargets",
+			"exportTargets" : 
+			[
+				{
+					"id" : "refl-cpp::@477037ffdf32139cdafa",
+					"index" : 0
+				}
+			],
+			"paths" : 
+			[
+				"external/refl-cpp-master/CMakeFiles/Export/lib/cmake/refl-cpp/refl-cpp-config.cmake"
+			],
+			"type" : "export"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "external/refl-cpp-master",
+		"source" : "external/refl-cpp-master"
+	}
+}
