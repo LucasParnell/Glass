@@ -4,7 +4,8 @@
 
 using Loaders::MeshLoader;
 
-Base::Result MeshLoader::meCreateMesh(Components::Mesh &baseMesh, const std::string& mountpoint, const std::string& filename) {
+Base::Result
+MeshLoader::meCreateMesh(Components::Mesh &baseMesh, const std::string &mountpoint, const std::string &filename) {
 
 
     tinygltf::Model model;
@@ -20,14 +21,13 @@ Base::Result MeshLoader::meCreateMesh(Components::Mesh &baseMesh, const std::str
 
 }
 
-bool MeshLoader::bLoadModel(tinygltf::Model &model, const std::string& mountpoint, const std::string& filename) {
+bool MeshLoader::bLoadModel(tinygltf::Model &model, const std::string &mountpoint, const std::string &filename) {
     tinygltf::TinyGLTF loader;
     std::string err;
     std::string warn;
 
     //Filename is mountpoint
     auto a = Filesystem::VFS::Load(mountpoint, filename);
-
 
 
     bool res = loader.LoadBinaryFromMemory(&model, &err, &warn, a.buffer, a.size);

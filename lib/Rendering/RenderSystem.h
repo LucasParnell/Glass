@@ -32,12 +32,10 @@ namespace Rendering {
         GLASS_EXPORT RenderSystem();
 
 
-
-        void Render(Base::Window *pWindow, Managers::EntityManager *pEntityManager, Managers::ComponentManager *pComponentManager);
+        void Render(Base::Window *pWindow, Managers::EntityManager *pEntityManager,
+                    Managers::ComponentManager *pComponentManager);
 
         void SetWindow(Base::Window *window);
-
-
 
     private:
         std::vector<std::pair<std::string, uint32_t>> loadedShaders;

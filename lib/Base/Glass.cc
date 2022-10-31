@@ -6,6 +6,11 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 
 void mouse_callback(GLFWwindow *window, double xpos, double ypos);
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods);
+
+bool cursor_focus = true;
+
+
 using Base::Glass;
 
 Glass::Glass() = default;
@@ -18,6 +23,7 @@ Glass::~Glass() {
 
 Base::Result Glass::iCleanup() {
     glfwTerminate();
+    GUI::GUIHandler::Cleanup();
     return Result::STATUS_OK;
 }
 
@@ -70,7 +76,7 @@ Base::Result Glass::iCreateWindow(Window &window) {
     }
 
     glfwMakeContextCurrent(sWindow);
-    glfwSetFramebufferSizeCallback(sWindow, framebuffer_size_callback);
+
     glfwSwapInterval(0);
     // glad: load all OpenGL function pointers
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
@@ -91,12 +97,18 @@ Base::Result Glass::iBeginEngineLoop() {
 
     GLFWwindow *pWindow = mWindow.pGetWindow();
 
+
+
     //Set up mouse
     glfwSetInputMode(pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     if (glfwRawMouseMotionSupported())
         glfwSetInputMode(pWindow, GLFW_RAW_MOUSE_MOTION, GLFW_TRUE);
 
+    glfwSetFramebufferSizeCallback(pWindow, framebuffer_size_callback);
     glfwSetCursorPosCallback(pWindow, mouse_callback);
+    glfwSetKeyCallback(pWindow, key_callback);
+
+    GUI::GUIHandler::Initialise(pWindow );
 
     //Enable Depth Testing and Culling
     glEnable(GL_DEPTH_TEST);
@@ -109,8 +121,11 @@ Base::Result Glass::iBeginEngineLoop() {
     double timeDelta;
 
     while (!glfwWindowShouldClose(pWindow)) {
-        glClearColor((float)((1.0/255)*181), (float)((1.0/255)*101), (float)((1.0/255)*147), 1.0f);
+        glClearColor((float) ((1.0 / 255) * 52), (float) ((1.0 / 255) * 210), (float) ((1.0 / 255) * 235), 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+        glfwPollEvents();
+        GUI::GUIHandler::BeginFrame();
 
         currentTime = glfwGetTime();
         timeDelta = (currentTime - previousTime);
@@ -120,27 +135,44 @@ Base::Result Glass::iBeginEngineLoop() {
         //BELOW IS ALL TEMPORARY AND WILL BE HANDLED IN LUA LATER ON
         // input
         // -----
+        Components::Camera *pCamera = Components::Camera::pGetMainCamera();
+
         if (glfwGetKey(pWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
             glfwSetWindowShouldClose(pWindow, true);
 
-        Components::Camera *pCamera = Components::Camera::pGetMainCamera();
-        const float cameraSpeed = 2.0f * (float) timeDelta; // adjust accordingly
-        if (glfwGetKey(pWindow, GLFW_KEY_W) == GLFW_PRESS)
-            pCamera->transform->position += cameraSpeed * pCamera->front;
-        if (glfwGetKey(pWindow, GLFW_KEY_S) == GLFW_PRESS)
-            pCamera->transform->position -= cameraSpeed * pCamera->front;
-        if (glfwGetKey(pWindow, GLFW_KEY_A) == GLFW_PRESS)
-            pCamera->transform->position -= glm::normalize(glm::cross(pCamera->front, pCamera->up)) * cameraSpeed;
-        if (glfwGetKey(pWindow, GLFW_KEY_D) == GLFW_PRESS)
-            pCamera->transform->position += glm::normalize(glm::cross(pCamera->front, pCamera->up)) * cameraSpeed;
+
+
+        if(cursor_focus) {
+
+            const float cameraSpeed = 2.0f * (float) timeDelta; // adjust accordingly
+            if (glfwGetKey(pWindow, GLFW_KEY_W) == GLFW_PRESS)
+                pCamera->transform->position += cameraSpeed * pCamera->front;
+            if (glfwGetKey(pWindow, GLFW_KEY_S) == GLFW_PRESS)
+                pCamera->transform->position -= cameraSpeed * pCamera->front;
+            if (glfwGetKey(pWindow, GLFW_KEY_A) == GLFW_PRESS)
+                pCamera->transform->position -= glm::normalize(glm::cross(pCamera->front, pCamera->up)) * cameraSpeed;
+            if (glfwGetKey(pWindow, GLFW_KEY_D) == GLFW_PRESS)
+                pCamera->transform->position += glm::normalize(glm::cross(pCamera->front, pCamera->up)) * cameraSpeed;
+
+        }
+
+
+
 
         pCamera->UpdateVectors();
         //-----------------
 
+
+
+        GUI::GUIHandler::EntityUI(mEntityManager,mComponentManager);
+        GUI::GUIHandler::InspectorUI(mEntityManager,mComponentManager);
+
+
         mRenderSystem.Render(&mWindow, &mEntityManager, &mComponentManager);
+        GUI::GUIHandler::EndFrame();
 
         glfwSwapBuffers(pWindow);
-        glfwPollEvents();
+
     }
 
     return Result::STATUS_OK;
@@ -159,22 +191,10 @@ Rendering::RenderSystem *Glass::pGetRenderSystem() {
     return &mRenderSystem;
 }
 
-Base::Result Glass::iSerialiseEntity(const Entity &entity) {
-    json ex3 = {
-            {"name", entity},
-            {"components",}
-    };
-    std::vector<std::uint8_t> v_cbor = json::to_cbor(ex3);
-    std::ofstream outputFile("CoolWorld/" + entity + ".ged");
-    outputFile << v_cbor.data();
-
-
-    return Result::STATUS_OK;
-}
-
 //Replace this
 void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
     glViewport(0, 0, width, height);
+
 }
 
 //Again, is temporary
@@ -199,13 +219,26 @@ void mouse_callback(GLFWwindow *window, double xpos, double ypos) {
     xoffset *= sensitivity;
     yoffset *= sensitivity;
 
-    camera->yaw += xoffset;
-    camera->pitch += yoffset;
+    if(cursor_focus) {
+        camera->yaw += xoffset;
+        camera->pitch += yoffset;
 
-    if (camera->pitch > 89.0f)
-        camera->pitch = 89.0f;
-    if (camera->pitch < -89.0f)
-        camera->pitch = -89.0f;
+        if (camera->pitch > 89.0f)
+            camera->pitch = 89.0f;
+        if (camera->pitch < -89.0f)
+            camera->pitch = -89.0f;
+    }
 }
 
+void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+{
+    if(key == GLFW_KEY_I && action == GLFW_PRESS) {
+        if(cursor_focus) {
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        }
+        else
+            glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        cursor_focus = !cursor_focus;
 
+    }
+}

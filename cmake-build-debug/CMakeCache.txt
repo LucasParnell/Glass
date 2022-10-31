@@ -274,6 +274,12 @@ Test_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Test_SOURCE_DIR:STATIC=C:/Users/lucas/Documents/Projects/Glass
 
+//The directory containing a CMake configuration file for glfw3.
+glfw3_DIR:PATH=glfw3_DIR-NOTFOUND
+
+//The directory containing a CMake configuration file for imgui.
+imgui_DIR:PATH=imgui_DIR-NOTFOUND
+
 //Value Computed by CMake
 refl-cpp_BINARY_DIR:STATIC=C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/external/refl-cpp-master
 

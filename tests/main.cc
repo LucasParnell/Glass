@@ -2,9 +2,11 @@
 //
 
 //Fix includes and stuff, am very tired today
-#include "../lib/Base/Glass.h"
+#include "Base/Glass.h"
 #include "Loaders/TextureLoader.h"
 #include "Filesystem/Vfs.h"
+#include "Base/LuaDriver.h"
+#include "GUI/GuiHandler.h"
 
 using Filesystem::VFS;
 
@@ -12,6 +14,7 @@ int main() {
 
     Base::Glass engine;
     Base::Window window{};
+    Base::LuaDriver luaDriver;
     window.title = "Glass Window";
     window.width = 1920;
     window.height = 1080;
@@ -31,6 +34,9 @@ int main() {
     VFS::ListAll();
 
     entityMan->ConstructGSD("GamePak:\\scenes\\", "demo_scene.gsd", compMan, *renderer);
+
+    luaDriver.BeginState();
+
 
     engine.iBeginEngineLoop();
 }

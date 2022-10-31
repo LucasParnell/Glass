@@ -41,18 +41,101 @@ include CMakeFiles\rules.ninja
 
 cmake_ninja_workdir = C$:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\
 # =============================================================================
+# Object build statements for STATIC_LIBRARY target ImGui
+
+
+#############################################
+# Order-only phony target for ImGui
+
+build cmake_object_order_depends_target_ImGui: phony || CMakeFiles\ImGui.dir
+
+build CMakeFiles\ImGui.dir\external\imgui\imgui.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\imgui.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\imgui_demo.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\imgui_demo.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\imgui_draw.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\imgui_draw.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\imgui_tables.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\imgui_tables.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\imgui_widgets.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\imgui_widgets.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\backends\imgui_impl_glfw.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\backends\imgui_impl_glfw.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui\backends
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+build CMakeFiles\ImGui.dir\external\imgui\backends\imgui_impl_opengl3.cpp.obj: CXX_COMPILER__ImGui_Debug C$:\Users\lucas\Documents\Projects\Glass\external\imgui\backends\imgui_impl_opengl3.cpp || cmake_object_order_depends_target_ImGui
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  OBJECT_FILE_DIR = CMakeFiles\ImGui.dir\external\imgui\backends
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_PDB = ImGui.pdb
+
+
+# =============================================================================
+# Link build statements for STATIC_LIBRARY target ImGui
+
+
+#############################################
+# Link the static library ImGui.lib
+
+build ImGui.lib: CXX_STATIC_LIBRARY_LINKER__ImGui_Debug CMakeFiles\ImGui.dir\external\imgui\imgui.cpp.obj CMakeFiles\ImGui.dir\external\imgui\imgui_demo.cpp.obj CMakeFiles\ImGui.dir\external\imgui\imgui_draw.cpp.obj CMakeFiles\ImGui.dir\external\imgui\imgui_tables.cpp.obj CMakeFiles\ImGui.dir\external\imgui\imgui_widgets.cpp.obj CMakeFiles\ImGui.dir\external\imgui\backends\imgui_impl_glfw.cpp.obj CMakeFiles\ImGui.dir\external\imgui\backends\imgui_impl_opengl3.cpp.obj
+  LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
+  LINK_FLAGS = /machine:x64
+  OBJECT_DIR = CMakeFiles\ImGui.dir
+  POST_BUILD = cd .
+  PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\ImGui.dir\ImGui.pdb
+  TARGET_FILE = ImGui.lib
+  TARGET_PDB = ImGui.pdb
+
+# =============================================================================
 # Object build statements for SHARED_LIBRARY target Glass
 
 
 #############################################
 # Order-only phony target for Glass
 
-build cmake_object_order_depends_target_Glass: phony || CMakeFiles\Glass.dir
+build cmake_object_order_depends_target_Glass: phony || cmake_object_order_depends_target_ImGui
 
 build CMakeFiles\Glass.dir\external\glad\glad.c.obj: C_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\external\glad\glad.c || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\external\glad
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -61,7 +144,7 @@ build CMakeFiles\Glass.dir\external\glad\glad.c.obj: C_COMPILER__Glass_Debug C$:
 build CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\external\lodepng\lodepng.cpp || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\external\lodepng
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -70,7 +153,7 @@ build CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj: CXX_COMPILER__Glass
 build CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Base\Glass.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Base
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -79,7 +162,7 @@ build CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj: CXX_COMPILER__Glass_Debug C$:\
 build CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Managers\EntityManager.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Managers
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -88,7 +171,7 @@ build CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj: CXX_COMPILER__Glas
 build CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Loaders\MeshLoader.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Loaders
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -97,7 +180,7 @@ build CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj: CXX_COMPILER__Glass_De
 build CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Rendering\RenderSystem.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Rendering
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -106,7 +189,7 @@ build CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj: CXX_COMPILER__Glas
 build CMakeFiles\Glass.dir\lib\Base\Window.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Base\Window.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Base
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -115,7 +198,7 @@ build CMakeFiles\Glass.dir\lib\Base\Window.cc.obj: CXX_COMPILER__Glass_Debug C$:
 build CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Loaders\TextureLoader.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Loaders
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -124,7 +207,7 @@ build CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj: CXX_COMPILER__Glass
 build CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\Camera.cpp || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -133,7 +216,7 @@ build CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj: CXX_COMPILER__Glass_De
 build CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Filesystem\Vfs.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Filesystem
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -142,7 +225,7 @@ build CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj: CXX_COMPILER__Glass_Debug 
 build CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\Mesh.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -151,7 +234,7 @@ build CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj: CXX_COMPILER__Glass_Debug
 build CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\Shader.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -160,7 +243,7 @@ build CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj: CXX_COMPILER__Glass_Deb
 build CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\Texture.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -169,7 +252,7 @@ build CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj: CXX_COMPILER__Glass_De
 build CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\Transform.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -178,7 +261,7 @@ build CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj: CXX_COMPILER__Glass_
 build CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Components\IComponentFactory\IComponentFactory.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Components\IComponentFactory
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
@@ -187,9 +270,27 @@ build CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc
 build CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Loaders\ShaderLoader.cc || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
   OBJECT_DIR = CMakeFiles\Glass.dir
   OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Loaders
+  TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
+  TARGET_PDB = Glass.pdb
+
+build CMakeFiles\Glass.dir\lib\Base\LuaDriver.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Base\LuaDriver.cc || cmake_object_order_depends_target_Glass
+  DEFINES = -DGlass_EXPORTS
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
+  OBJECT_DIR = CMakeFiles\Glass.dir
+  OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Base
+  TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
+  TARGET_PDB = Glass.pdb
+
+build CMakeFiles\Glass.dir\lib\GUI\GuiHandler.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\GUI\GuiHandler.cc || cmake_object_order_depends_target_Glass
+  DEFINES = -DGlass_EXPORTS
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
+  OBJECT_DIR = CMakeFiles\Glass.dir
+  OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\GUI
   TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
   TARGET_PDB = Glass.pdb
 
@@ -201,10 +302,10 @@ build CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj: CXX_COMPILER__Glass_
 #############################################
 # Link the shared library Glass.dll
 
-build Glass.dll Glass.lib: CXX_SHARED_LIBRARY_LINKER__Glass_Debug CMakeFiles\Glass.dir\external\glad\glad.c.obj CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj CMakeFiles\Glass.dir\lib\Base\Window.cc.obj CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc.obj CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj | ..\external\glfw\glfw3dll.lib
+build Glass.dll Glass.lib: CXX_SHARED_LIBRARY_LINKER__Glass_Debug CMakeFiles\Glass.dir\external\glad\glad.c.obj CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj CMakeFiles\Glass.dir\lib\Base\Window.cc.obj CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc.obj CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj CMakeFiles\Glass.dir\lib\Base\LuaDriver.cc.obj CMakeFiles\Glass.dir\lib\GUI\GuiHandler.cc.obj | ..\external\glfw\glfw3dll.lib ..\external\LuaJIT\luajit.lib ImGui.lib || ImGui.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL
-  LINK_LIBRARIES = opengl32.lib  ..\external\glfw\glfw3dll.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  LINK_LIBRARIES = opengl32.lib  ..\external\glfw\glfw3dll.lib  ..\external\LuaJIT\luajit.lib  ImGui.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
   OBJECT_DIR = CMakeFiles\Glass.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
@@ -225,7 +326,7 @@ build cmake_object_order_depends_target_Test: phony || CMakeFiles\Test.dir
 
 build CMakeFiles\Test.dir\tests\main.cc.obj: CXX_COMPILER__Test_Debug C$:\Users\lucas\Documents\Projects\Glass\tests\main.cc || cmake_object_order_depends_target_Test
   FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
-  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui
   OBJECT_DIR = CMakeFiles\Test.dir
   OBJECT_FILE_DIR = CMakeFiles\Test.dir\tests
   TARGET_COMPILE_PDB = CMakeFiles\Test.dir\
@@ -367,6 +468,8 @@ build external\refl-cpp-master\install\local: phony external\refl-cpp-master\CMa
 
 build Glass: phony Glass.dll
 
+build ImGui: phony ImGui.lib
+
 build Test: phony Test.exe
 
 # =============================================================================
@@ -377,7 +480,7 @@ build Test: phony Test.exe
 #############################################
 # Folder: C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug
 
-build all: phony Glass.dll Test.exe external\refl-cpp-master\all
+build all: phony ImGui.lib Glass.dll Test.exe external\refl-cpp-master\all
 
 # =============================================================================
 

@@ -8,13 +8,17 @@
 #include "Base/Logging.h"
 #include "Components/IComponentFactory/IComponentFactory.h"
 
+
 using Entity = std::string;
 using Component = uint32_t;
+
+
 
 namespace Managers {
     struct ComponentManager {
 
         //Array of components
+
         std::vector<Components::IComponent *> components;
 
         //Entity-Components vector
@@ -32,8 +36,40 @@ namespace Managers {
         }
 
         __declspec(dllexport) void __cdecl UnRegisterComponent(Component component) {
-            //Add actual removal system, stop being lazy.
-            delete components.at(component);
+            if(components.size()>component) {
+                components.erase(components.begin() + component);
+            }
+            else{
+                MLOG(LOG_WARN, "Component doesn't exist");
+            }
+        }
+
+        __declspec(dllexport) void __cdecl RemoveEntity(Entity entity) {
+            //Remove all components
+            auto &component_list = entityComponents[entity];
+
+
+            std::vector<uint32_t> shift_buffer;
+
+
+
+            for(uint32_t i=component_list.size()-1; i>0; i--) {
+                UnRegisterComponent(component_list[i]);
+                shift_buffer.push_back(component_list[i]);
+            }
+
+            entityComponents.erase(entity);
+
+            //Could be optimised
+            for(auto &ec_pair : entityComponents){
+                for(auto &comp : ec_pair.second){
+                    for(auto &shift_index : shift_buffer)
+                        if(comp > shift_index)
+                            comp--;
+                }
+            }
+
+
         }
 
         __declspec(dllexport) void __cdecl AddComponent(Entity entity, Component component) {

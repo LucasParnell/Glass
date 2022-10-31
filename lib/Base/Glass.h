@@ -3,6 +3,7 @@
 
 #include "glass_export.h"
 
+
 #define TINYGLTF_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION
@@ -16,6 +17,7 @@
 #include "Managers/ComponentManager.h"
 #include "Rendering/RenderSystem.h"
 #include "Logging.h"
+#include "GUI/GuiHandler.h"
 
 namespace Base {
 
@@ -42,6 +44,7 @@ namespace Base {
     private:
 
         Result iCleanup();
+
 
         Managers::ComponentManager mComponentManager;
         Managers::EntityManager mEntityManager;

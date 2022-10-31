@@ -1,7 +1,6 @@
 #pragma once
 
 
-
 #include "glass_export.h"
 #include "Base/Result.h"
 #include "Components/Mesh.h"

@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Base/Result.h"
 #include "glass_export.h"
 #include "Base/Utils.h"
@@ -21,7 +22,7 @@ namespace Filesystem {
     };
 
     struct PopulatedFileEntry : public FileEntry {
-        unsigned char* buffer{};
+        unsigned char *buffer{};
     };
 
 
@@ -34,7 +35,7 @@ namespace Filesystem {
 
         static PopulatedFileEntry GLASS_EXPORT Load(std::string mountpoint, std::string filename);
 
-        static Base::Result GLASS_EXPORT Mount(const std::string& filename);
+        static Base::Result GLASS_EXPORT Mount(const std::string &filename);
 
         static Base::Result GLASS_EXPORT ListAll();
 

@@ -1,4 +1,5 @@
 #pragma once
+
 #include <cstdint>
 #include <string>
 
@@ -15,27 +16,25 @@ namespace Base {
 
         }
 
-        static bool stringReplace(std::string& str, const std::string& from, const std::string& to) {
+        static bool stringReplace(std::string &str, const std::string &from, const std::string &to) {
             size_t start_pos = str.find(from);
-            if(start_pos == std::string::npos)
+            if (start_pos == std::string::npos)
                 return false;
             str.replace(start_pos, from.length(), to);
             return true;
         }
 
 
-    static int strpos(char *haystack, char *needle, int nth)
-    {
-        char *res = haystack;
-        for(int i = 1; i <= nth; i++)
-        {
-            res = strstr(res, needle);
-            if (!res)
-                return -1;
-            else if(i != nth)
-                res++;
+        static int strpos(char *haystack, char *needle, int nth) {
+            char *res = haystack;
+            for (int i = 1; i <= nth; i++) {
+                res = strstr(res, needle);
+                if (!res)
+                    return -1;
+                else if (i != nth)
+                    res++;
+            }
+            return res - haystack;
         }
-        return res - haystack;
-    }
     };
 }

@@ -36,6 +36,7 @@ namespace Components {
         glm::vec3 up = glm::vec3(0.0f);
         float yaw = 0;
         float pitch = 0;
+
         GLASS_REFLECTABLE();
         REGISTER_DEC_TYPE(Camera);
 
@@ -46,4 +47,4 @@ namespace Components {
     };
 
 }
-REFL_AUTO(type(Components::Camera, bases<Components::IComponent>))
+REFL_AUTO(type(Components::Camera, bases < Components::IComponent > ))

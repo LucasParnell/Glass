@@ -9,7 +9,7 @@ using Filesystem::VFS;
 
 RenderSystem::RenderSystem() = default;
 
-void RenderSystem::SetWindow(Base::Window *window){
+void RenderSystem::SetWindow(Base::Window *window) {
     this->window = window;
 }
 
@@ -65,23 +65,24 @@ void RenderSystem::DrawModel(const std::pair<GLuint, std::map<int, GLuint>> &vao
 }
 
 
-void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntityManager, Managers::ComponentManager *pComponentManager) {
+void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntityManager,
+                          Managers::ComponentManager *pComponentManager) {
     //Make this better please
     this->window = pWindow;
 
-    for (const Entity &entity: pEntityManager->entities) {
-        auto components = &pComponentManager->entityComponents[entity];
+    for (const auto &ec_pair: pComponentManager->entityComponents) {
+        auto components = ec_pair.second;
 
         glm::mat4 model = glm::mat4(1.0f);
         Components::Shader *shader = nullptr;
         bool textureLoaded = false;
         GLuint texture;
 
-        for(auto &component : pComponentManager->entityComponents[entity]){
+        for (auto &component: components) {
             auto p_component = pComponentManager->GetComponentPtr(component);
             //Could replace these with integers and use switch
             auto name = p_component->GetTypeInfo().Name();
-            switch(Base::Utils::hash(name.c_str(), name.size())){
+            switch (Base::Utils::hash(name.c_str(), name.size())) {
                 case (Base::Utils::hash("Components::Transform", 21)): {
                     auto *transform = (Components::Transform *) p_component;
                     model = glm::translate(model, transform->position);
@@ -109,12 +110,12 @@ void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntit
             continue;
         }
 
-
         glUseProgram(shader->ID);
 
         if (textureLoaded) {
             glBindTexture(GL_TEXTURE_2D, texture);
         }
+        shader->ExecUniforms();
 
         SetMat4("model", model, shader->ID);
         ParseCamera(shader->ID);
@@ -129,6 +130,8 @@ void RenderSystem::Render(Base::Window *pWindow, Managers::EntityManager *pEntit
 
 }
 
+
+//TODO(Will soon switch over to shader method)
 void RenderSystem::SetMat4(const std::string &uniform, glm::mat4 matrix, uint32_t shaderID) {
     auto location = glGetUniformLocation(shaderID, uniform.c_str());
     glUniformMatrix4fv(location, 1, GL_FALSE, &matrix[0][0]);

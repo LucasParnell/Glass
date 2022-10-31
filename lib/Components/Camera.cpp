@@ -8,7 +8,8 @@ Camera::Camera() {
     mainCamera = this;
 
 }
-void Camera::SetTransform(Transform *transform){
+
+void Camera::SetTransform(Transform *transform) {
     this->transform = transform;
     UpdateVectors();
 }
@@ -41,7 +42,7 @@ REGISTER_DEF_TYPE(Camera);
 Base::Result Components::Camera::SetMembers(std::vector<std::string> list) {
     //Make sure camera has a valid transform reference
     //TODO(Note: I plan on writing a proper system for entity management and will create a parent-child system)
-    if(!this->transform){
+    if (!this->transform) {
         MLOG(LOG_ERROR, "Camera object does not contain a reference to a Transform");
         return Base::Result::STATUS_ERROR;
     }

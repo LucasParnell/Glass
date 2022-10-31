@@ -18,10 +18,11 @@
 namespace Loaders {
     class MeshLoader {
     public:
-        GLASS_EXPORT Base::Result meCreateMesh(Components::Mesh& mesh, const std::string& mountpoint, const std::string& filename);
+        GLASS_EXPORT Base::Result
+        meCreateMesh(Components::Mesh &mesh, const std::string &mountpoint, const std::string &filename);
 
     private:
-        static bool bLoadModel(tinygltf::Model &model, const std::string& mountpoint, const std::string& filename);
+        static bool bLoadModel(tinygltf::Model &model, const std::string &mountpoint, const std::string &filename);
 
         void bindModelNodes(std::map<int, GLuint> &vbos, tinygltf::Model &model, tinygltf::Node &node);
 

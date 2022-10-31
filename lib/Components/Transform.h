@@ -8,9 +8,11 @@
 namespace Components {
     struct Transform : public IComponent {
         Base::Result SetMembers(std::vector<std::string> list) override;
+
         glm::vec3 position;
+
         GLASS_REFLECTABLE();
         REGISTER_DEC_TYPE(Transform);
     };
 }
-REFL_AUTO(type(Components::Transform, bases<Components::IComponent>))
+REFL_AUTO(type(Components::Transform, bases < Components::IComponent > ))

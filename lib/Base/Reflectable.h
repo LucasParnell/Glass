@@ -1,23 +1,21 @@
 #pragma once
+
 #include <cassert>
 #include "refl.hpp"
 
 // create a class to hold runtime type information
-class TypeInfo
-{
+class TypeInfo {
 public:
 
     // instances can be obtained only through calls to Get()
-    template <typename T>
-    static const TypeInfo& Get()
-    {
+    template<typename T>
+    static const TypeInfo &Get() {
         // here we create the singleton instance for this particular type
         static const TypeInfo ti(refl::reflect<T>());
         return ti;
     }
 
-    const std::string& Name() const
-    {
+    const std::string &Name() const {
         return name_;
     }
 
@@ -29,18 +27,16 @@ private:
 
     // given a type_descriptor, we construct a TypeInfo
     // with all the metadata we care about (currently only name)
-    template <typename T, typename... Fields>
+    template<typename T, typename... Fields>
     TypeInfo(refl::type_descriptor<T> td)
-            : name_(td.name)
-    {
+            : name_(td.name) {
     }
 
 };
 
-class Reflectable
-{
+class Reflectable {
 public:
-    virtual const TypeInfo& GetTypeInfo() const = 0;
+    virtual const TypeInfo &GetTypeInfo() const = 0;
 };
 
 // define a convenience macro to autoimplement GetTypeInfo()

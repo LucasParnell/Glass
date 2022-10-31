@@ -6,7 +6,7 @@ REGISTER_DEF_TYPE(Shader);
 
 Base::Result Components::Shader::SetMembers(std::vector<std::string> list) {
     //some error checking
-    if(list.size()!=2){
+    if (list.size() != 2) {
         MLOG(LOG_ERROR, "Size of shader array in GSD file is invalid.");
         return Base::Result::STATUS_ERROR;
     }

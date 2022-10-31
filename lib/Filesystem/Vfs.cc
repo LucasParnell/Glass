@@ -5,8 +5,8 @@
 
 using Filesystem::VFS;
 
-Base::Result VFS::Mount(const std::string& base_file) {
-    FILE* inFile = fopen(base_file.c_str(), "rb");
+Base::Result VFS::Mount(const std::string &base_file) {
+    FILE *inFile = fopen(base_file.c_str(), "rb");
 
     char fileTableBuffer[SIZE_FILETABLE];
 
@@ -19,43 +19,43 @@ Base::Result VFS::Mount(const std::string& base_file) {
 
     //TODO(Check File Header for 'GPAK')
 
-    MLOG(LOG_INFO, "Mounting VFS: '" + base_file +"'");
-    for(int i=0; i<SIZE_FILETABLE; i+=4){
+    MLOG(LOG_INFO, "Mounting VFS: '" + base_file + "'");
+    for (int i = 0; i < SIZE_FILETABLE; i += 4) {
         //Read Offset
 
         //Name
-        char * c_gpkName = (char*)malloc(8);
+        char *c_gpkName = (char *) malloc(8);
 
         fseek(inFile, 5, SEEK_SET);
         fread(c_gpkName, 8, 1, inFile);
 
         //File Table Offset
-        auto * offset = (long*)malloc(4);
+        auto *offset = (long *) malloc(4);
 
         fseek(inFile, OFFSET_FILETABLE + i, SEEK_SET);
         fread(offset, 4, 1, inFile);
 
         //If the offset is 0, we have reached the last offset and can continue
-        if(!*offset)
+        if (!*offset)
             break;
 
         //Read File Header
-        char* header = (char*)malloc(SIZE_FILEHEADER);
+        char *header = (char *) malloc(SIZE_FILEHEADER);
 
         fseek(inFile, *offset, SEEK_SET);
         fread(header, SIZE_FILEHEADER, 1, inFile);
 
         //Get mountpoint
-        char* c_mountpoint = (char*)malloc(128);
+        char *c_mountpoint = (char *) malloc(128);
         memcpy(c_mountpoint, header, 128);
 
         //Get filename
-        char* c_fileName = (char*)malloc(32);
-        memcpy(c_fileName, header+128, 32);
+        char *c_fileName = (char *) malloc(32);
+        memcpy(c_fileName, header + 128, 32);
 
         //Get file size
-        long* c_size = (long*)malloc(4);
-        memcpy(c_size, header+0xA1, 4);
+        long *c_size = (long *) malloc(4);
+        memcpy(c_size, header + 0xA1, 4);
 
 
         std::string sMountpoint = std::string(c_mountpoint);
@@ -68,29 +68,26 @@ Base::Result VFS::Mount(const std::string& base_file) {
 
         //If mountpoint is not yet in the map, store it, along with a pointer to its file header
         //Then, Add current file to the mountpoint
-        if(!mountMap.contains(sMountpoint)){
+        if (!mountMap.contains(sMountpoint)) {
             mountMap[sMountpoint] = std::vector<FileEntry>();
         }
 
-        mountMap[sMountpoint].emplace_back(FileEntry{sFileName, base_file,*offset, *c_size});
-        MLOG(LOG_INFO, "Mounted, mountpoint: '" + sMountpoint +"'");
+        mountMap[sMountpoint].emplace_back(FileEntry{sFileName, base_file, *offset, *c_size});
+        MLOG(LOG_INFO, "Mounted, mountpoint: '" + sMountpoint + "'");
     }
     fclose(inFile);
-
-
 
 
     return Base::Result::STATUS_OK;
 }
 
 Base::Result GLASS_EXPORT VFS::ListAll() {
-    for (auto const& [key, val] : mountMap)
-    {
+    for (auto const &[key, val]: mountMap) {
         std::string entries;
         entries += "\n";
         entries += "Mountpoint: " + key + "\n";
 
-        for(const auto& entry : val){
+        for (const auto &entry: val) {
             entries += entry.name + "\n";
         }
         MLOG(LOG_INFO, entries);
@@ -101,12 +98,12 @@ Base::Result GLASS_EXPORT VFS::ListAll() {
 std::string GLASS_EXPORT VFS::ReadToString(std::string mountpoint, std::string filename) {
     //Load file and cast to const char*
     PopulatedFileEntry pfe = VFS::Load(mountpoint, filename);
-    std::string buffer(reinterpret_cast<const char*>(pfe.buffer), pfe.size);
+    std::string buffer(reinterpret_cast<const char *>(pfe.buffer), pfe.size);
 
     return buffer;
 }
 
-Base::Result Filesystem::VFS::Unload(Filesystem::PopulatedFileEntry* pfe){
+Base::Result Filesystem::VFS::Unload(Filesystem::PopulatedFileEntry *pfe) {
     free(pfe->buffer);
     delete pfe;
     return Base::Result::STATUS_OK;

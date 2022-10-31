@@ -2,16 +2,19 @@
 
 using Filesystem::VFS;
 
-Base::Result Loaders::ShaderLoader::LoadObject(Components::Shader &shader, Components::Mesh &mesh, Rendering::RenderSystem &renderSystem){
+Base::Result Loaders::ShaderLoader::LoadObject(Components::Shader &shader, Components::Mesh &mesh,
+                                               Rendering::RenderSystem &renderSystem)
+                                               {
 
     shader.meshToLoad = &mesh;
 
     int loadedId = -1;
 
-    for (auto &loadedShader: renderSystem.loadedShaders) {
-        if (loadedShader.first == shader.shaderName)
-            loadedId = (int) loadedShader.second;
-    }
+   for (auto &loadedShader: renderSystem.loadedShaders) {
+       if (loadedShader.first == shader.shaderName)
+           loadedId = (int) loadedShader.second;
+   }
+
 
     if (loadedId == -1) {
         std::string fragBuffer = VFS::ReadToString(shader.mountpoint, (shader.shaderName + ".frag"));
@@ -53,9 +56,11 @@ Base::Result Loaders::ShaderLoader::LoadObject(Components::Shader &shader, Compo
         glDeleteShader(fragmentShader);
 
         renderSystem.loadedShaders.emplace_back(shader.shaderName, shader.ID);
+
     } else {
         shader.ID = loadedId;
     }
+
 
     renderSystem.ParseCamera(shader.ID);
 

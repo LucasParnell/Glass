@@ -10,8 +10,10 @@
 namespace Components {
     struct Mesh : public IComponent { //Make this easier to use
         Base::Result SetMembers(std::vector<std::string> list) override;
+
         tinygltf::Model model;
         std::pair<GLuint, std::map<int, GLuint>> vaoAndEbos;
+
         GLASS_REFLECTABLE();
         REGISTER_DEC_TYPE(Mesh);
     };
@@ -19,4 +21,4 @@ namespace Components {
 
 }
 
-REFL_AUTO(type(Components::Mesh, bases<Components::IComponent>))
+REFL_AUTO(type(Components::Mesh, bases < Components::IComponent > ))

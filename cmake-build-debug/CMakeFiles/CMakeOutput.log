@@ -6,11 +6,11 @@ Id flags:
 
 The output was:
 0
-Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31629 for x64
+Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 CMakeCCompilerId.c
-Microsoft (R) Incremental Linker Version 14.33.31629.0
+Microsoft (R) Incremental Linker Version 14.33.31630.0
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /out:CMakeCCompilerId.exe 
@@ -30,11 +30,11 @@ Id flags:
 
 The output was:
 0
-Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31629 for x64
+Microsoft (R) C/C++ Optimizing Compiler Version 19.33.31630 for x64
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 CMakeCXXCompilerId.cpp
-Microsoft (R) Incremental Linker Version 14.33.31629.0
+Microsoft (R) Incremental Linker Version 14.33.31630.0
 Copyright (C) Microsoft Corporation.  All rights reserved.
 
 /out:CMakeCXXCompilerId.exe 
@@ -50,26 +50,24 @@ The CXX compiler identification is MSVC, found in "C:/Users/lucas/Documents/Proj
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_da9db && [1/2] Building C object CMakeFiles\cmTC_da9db.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_da9db.exe
+Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_db4fb && [1/2] Building C object CMakeFiles\cmTC_db4fb.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_db4fb.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_afe52 && [1/2] Building CXX object CMakeFiles\cmTC_afe52.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_afe52.exe
+Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_86d89 && [1/2] Building CXX object CMakeFiles\cmTC_86d89.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_86d89.exe
 
 
 
 Performing C++ SOURCE FILE Test COMPILER_HAS_DEPRECATED succeeded with the following output:
 Change Dir: C:/Users/lucas/Documents/Projects/Glass/cmake-build-debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_7e0ce && [1/2] Building CXX object CMakeFiles\cmTC_7e0ce.dir\src.cxx.obj
-cl : Command line warning D9002 : ignoring unknown option '-static'
-cl : Command line warning D9002 : ignoring unknown option '-mavx2'
-[2/2] Linking CXX executable cmTC_7e0ce.exe
+Run Build Command(s):C:/Users/lucas/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/222.4167.35/bin/ninja/win/ninja.exe cmTC_b81a5 && [1/2] Building CXX object CMakeFiles\cmTC_b81a5.dir\src.cxx.obj
+[2/2] Linking CXX executable cmTC_b81a5.exe
 
 
 Source file was:
