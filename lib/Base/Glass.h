@@ -16,8 +16,10 @@
 #include "Managers/EntityManager.h"
 #include "Managers/ComponentManager.h"
 #include "Rendering/RenderSystem.h"
-#include "Logging.h"
+#include "Debug/Logging.h"
+#include "LuaDriver.h"
 #include "GUI/GuiHandler.h"
+#include "Utils.h"
 
 namespace Base {
 
@@ -45,6 +47,7 @@ namespace Base {
 
         Result iCleanup();
 
+        LuaDriver luaDriver;
 
         Managers::ComponentManager mComponentManager;
         Managers::EntityManager mEntityManager;

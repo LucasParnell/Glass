@@ -1,5 +1,5 @@
 #include "Mesh.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "Loaders/MeshLoader.h"
 
 using Components::Mesh;

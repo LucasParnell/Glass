@@ -13,7 +13,7 @@
 #include "Filesystem/Vfs.h"
 
 #include "Components/Mesh.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 
 namespace Loaders {
     class MeshLoader {

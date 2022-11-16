@@ -1,5 +1,5 @@
 #include "Texture.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "Loaders/TextureLoader.h"
 
 using Components::Texture;

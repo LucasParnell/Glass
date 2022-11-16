@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Components/Texture.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "Base/Window.h"
 #include "Filesystem/Vfs.h"
 

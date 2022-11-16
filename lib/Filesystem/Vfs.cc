@@ -1,6 +1,6 @@
 
 #include "Vfs.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include <sys/stat.h>
 
 using Filesystem::VFS;

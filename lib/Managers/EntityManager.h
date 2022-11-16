@@ -7,7 +7,7 @@
 #include "Filesystem/VFS.h"
 #include "tinygltf/json.hpp"
 #include "refl.hpp"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "ComponentManager.h"
 #include "Components/Camera.h"
 #include "Rendering/RenderSystem.h"

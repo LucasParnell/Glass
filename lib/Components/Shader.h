@@ -4,7 +4,7 @@
 #include <vector>
 #include "Components/IComponent.h"
 #include "Components/Transform.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "Mesh.h"
 #include "Components/IComponentFactory/DerivedRegister.h"
 #include "glass_export.h"

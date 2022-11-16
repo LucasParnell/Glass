@@ -5,7 +5,7 @@
 #include <memory>
 #include <map>
 #include "Components/IComponent.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 #include "Components/IComponentFactory/IComponentFactory.h"
 
 

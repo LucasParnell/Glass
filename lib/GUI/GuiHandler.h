@@ -7,6 +7,7 @@
 #include "backends/imgui_impl_glfw.h"
 #include "Base/Window.h"
 #include "LuaJIT/lua.h"
+#include "Debug/Logging.h"
 
 
 namespace GUI {
@@ -20,11 +21,10 @@ public:
 
     static void EntityUI(Managers::EntityManager& entityManager, Managers::ComponentManager& componentManager);
     static void InspectorUI(Managers::EntityManager& entityManager, Managers::ComponentManager& componentManager);
-    static void LuaConsole(lua_State* L);
+    static void LuaConsoleUI(lua_State* L);
 private:
     inline static bool inspectorOpen = false;
     inline static Entity inspectorEntity = "";
-
 
 };
 }

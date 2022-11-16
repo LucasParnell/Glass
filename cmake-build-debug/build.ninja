@@ -132,6 +132,15 @@ build ImGui.lib: CXX_STATIC_LIBRARY_LINKER__ImGui_Debug CMakeFiles\ImGui.dir\ext
 
 build cmake_object_order_depends_target_Glass: phony || cmake_object_order_depends_target_ImGui
 
+build CMakeFiles\Glass.dir\lib\Debug\Logging.cc.obj: CXX_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\lib\Debug\Logging.cc || cmake_object_order_depends_target_Glass
+  DEFINES = -DGlass_EXPORTS
+  FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd -std:c++20
+  INCLUDES = -IC:\Users\lucas\Documents\Projects\Glass\Glass -IC:\Users\lucas\Documents\Projects\Glass\PRIVATE -IC:\Users\lucas\Documents\Projects\Glass\lib -IC:\Users\lucas\Documents\Projects\Glass\include -IC:\Users\lucas\Documents\Projects\Glass\include\lodepng -IC:\Users\lucas\Documents\Projects\Glass\external\imgui -IC:\Users\lucas\Documents\Projects\Glass\external\refl-cpp-master\include -IC:\Users\lucas\Documents\Projects\Glass\cmake-build-debug\exports -IC:\Users\lucas\Documents\Projects\Glass\ImGui -IC:\Users\lucas\Documents\Projects\Glass\external\imgui\backends
+  OBJECT_DIR = CMakeFiles\Glass.dir
+  OBJECT_FILE_DIR = CMakeFiles\Glass.dir\lib\Debug
+  TARGET_COMPILE_PDB = CMakeFiles\Glass.dir\
+  TARGET_PDB = Glass.pdb
+
 build CMakeFiles\Glass.dir\external\glad\glad.c.obj: C_COMPILER__Glass_Debug C$:\Users\lucas\Documents\Projects\Glass\external\glad\glad.c || cmake_object_order_depends_target_Glass
   DEFINES = -DGlass_EXPORTS
   FLAGS = /DWIN32 /D_WINDOWS /Zi /Ob0 /Od /RTC1 -MDd
@@ -302,7 +311,7 @@ build CMakeFiles\Glass.dir\lib\GUI\GuiHandler.cc.obj: CXX_COMPILER__Glass_Debug 
 #############################################
 # Link the shared library Glass.dll
 
-build Glass.dll Glass.lib: CXX_SHARED_LIBRARY_LINKER__Glass_Debug CMakeFiles\Glass.dir\external\glad\glad.c.obj CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj CMakeFiles\Glass.dir\lib\Base\Window.cc.obj CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc.obj CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj CMakeFiles\Glass.dir\lib\Base\LuaDriver.cc.obj CMakeFiles\Glass.dir\lib\GUI\GuiHandler.cc.obj | ..\external\glfw\glfw3dll.lib ..\external\LuaJIT\luajit.lib ImGui.lib || ImGui.lib
+build Glass.dll Glass.lib: CXX_SHARED_LIBRARY_LINKER__Glass_Debug CMakeFiles\Glass.dir\lib\Debug\Logging.cc.obj CMakeFiles\Glass.dir\external\glad\glad.c.obj CMakeFiles\Glass.dir\external\lodepng\lodepng.cpp.obj CMakeFiles\Glass.dir\lib\Base\Glass.cc.obj CMakeFiles\Glass.dir\lib\Managers\EntityManager.cc.obj CMakeFiles\Glass.dir\lib\Loaders\MeshLoader.cc.obj CMakeFiles\Glass.dir\lib\Rendering\RenderSystem.cc.obj CMakeFiles\Glass.dir\lib\Base\Window.cc.obj CMakeFiles\Glass.dir\lib\Loaders\TextureLoader.cc.obj CMakeFiles\Glass.dir\lib\Components\Camera.cpp.obj CMakeFiles\Glass.dir\lib\Filesystem\Vfs.cc.obj CMakeFiles\Glass.dir\lib\Components\Mesh.cc.obj CMakeFiles\Glass.dir\lib\Components\Shader.cc.obj CMakeFiles\Glass.dir\lib\Components\Texture.cc.obj CMakeFiles\Glass.dir\lib\Components\Transform.cc.obj CMakeFiles\Glass.dir\lib\Components\IComponentFactory\IComponentFactory.cc.obj CMakeFiles\Glass.dir\lib\Loaders\ShaderLoader.cc.obj CMakeFiles\Glass.dir\lib\Base\LuaDriver.cc.obj CMakeFiles\Glass.dir\lib\GUI\GuiHandler.cc.obj | ..\external\glfw\glfw3dll.lib ..\external\LuaJIT\luajit.lib ImGui.lib || ImGui.lib
   LANGUAGE_COMPILE_FLAGS = /DWIN32 /D_WINDOWS /EHsc /Zi /Ob0 /Od /RTC1 -MDd
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL
   LINK_LIBRARIES = opengl32.lib  ..\external\glfw\glfw3dll.lib  ..\external\LuaJIT\luajit.lib  ImGui.lib  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib

@@ -14,11 +14,10 @@ int main() {
 
     Base::Glass engine;
     Base::Window window{};
-    Base::LuaDriver luaDriver;
     window.title = "Glass Window";
     window.width = 1920;
     window.height = 1080;
-    window.fullscreenType = Base::Window::FullscreenType::Disabled;
+    window.fullscreenType = Base::Window::FullscreenType::MaximizedWindow;
 
     engine.iCreateWindow(window);
     MLOG(LOG_INFO, "Window Created");
@@ -34,9 +33,6 @@ int main() {
     VFS::ListAll();
 
     entityMan->ConstructGSD("GamePak:\\scenes\\", "demo_scene.gsd", compMan, *renderer);
-
-    luaDriver.BeginState();
-
 
     engine.iBeginEngineLoop();
 }

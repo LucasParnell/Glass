@@ -10,7 +10,8 @@ namespace Base {
         enum FullscreenType {
             Disabled,
             Enabled,
-            Borderless
+            Borderless,
+            MaximizedWindow
         };
 
         const char *title;

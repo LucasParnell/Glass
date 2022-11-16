@@ -20,7 +20,11 @@ static int wrap_exceptions(lua_State *L, lua_CFunction f) {
 
 void Base::LuaDriver::BeginState() {
     luaState = luaL_newstate();
+
     lua_pushlightuserdata(luaState, (void *) wrap_exceptions);
     luaJIT_setmode(luaState, -1, LUAJIT_MODE_WRAPCFUNC | LUAJIT_MODE_ON);
+    luaL_openlibs(luaState);
+
     lua_pop(luaState, 1);
+    luaL_dostring(luaState, "print('This is lua code')");
 }

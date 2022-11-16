@@ -135,6 +135,7 @@ namespace GUI {
                     int glow = 0;
                     if(shader != c_shader)
                         c_shader->SetUniform(&glow, "inspectorSelect", Components::Shader::UniformType::INT1);
+
                 }
             }
         }
@@ -156,7 +157,38 @@ namespace GUI {
         ImGui::End();
     }
 
-    void GUIHandler::LuaConsole(lua_State *L) {
+    void GUIHandler::LuaConsoleUI(lua_State *L) {
+        ImGuiWindowFlags window_flags = 0;
 
+
+        bool p_open = true;
+
+        if (!ImGui::Begin("Console", &p_open, window_flags))
+        {
+            ImGui::End();
+            return;
+        }
+        //First, get the last log entry.
+        auto& lastEntries = Debug::Logging::logEntries;
+
+
+        if (ImGui::BeginTabBar("##Tabs", ImGuiTabBarFlags_None)) {
+            if (ImGui::BeginTabItem("Main Console")) {
+                ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(255, 255, 255, 255));
+                for (auto &entry: lastEntries) {
+                    ImGui::TextWrapped("%s", entry.msg.c_str());
+                }
+                ImGui::PopStyleColor();
+                ImGui::EndTabItem();
+            }
+            if (ImGui::BeginTabItem("Lua Console"))
+            {
+
+                ImGui::EndTabItem();
+            }
+            ImGui::EndTabBar();
+        }
+
+        ImGui::End();
     }
 }

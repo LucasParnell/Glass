@@ -59,6 +59,12 @@ Base::Result Glass::iCreateWindow(Window &window) {
             monitor = nullptr;
             break;
         }
+        case Window::MaximizedWindow: {
+            glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
+            glfwWindowHint(GLFW_MAXIMIZED, GLFW_TRUE);
+            break;
+        }
+
         default:
             glfwWindowHint(GLFW_DECORATED, GLFW_TRUE);
             break;
@@ -99,6 +105,9 @@ Base::Result Glass::iBeginEngineLoop() {
 
 
 
+    luaDriver.BeginState();
+
+
     //Set up mouse
     glfwSetInputMode(pWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     if (glfwRawMouseMotionSupported())
@@ -109,7 +118,7 @@ Base::Result Glass::iBeginEngineLoop() {
     glfwSetKeyCallback(pWindow, key_callback);
 
     GUI::GUIHandler::Initialise(pWindow );
-
+    Utils::SetupImGuiStyle(true, 1.0f);
     //Enable Depth Testing and Culling
     glEnable(GL_DEPTH_TEST);
     glDepthFunc(GL_LESS);
@@ -121,7 +130,7 @@ Base::Result Glass::iBeginEngineLoop() {
     double timeDelta;
 
     while (!glfwWindowShouldClose(pWindow)) {
-        glClearColor((float) ((1.0 / 255) * 52), (float) ((1.0 / 255) * 210), (float) ((1.0 / 255) * 235), 1.0f);
+        glClearColor((float) ((1.0 / 255) * 0), (float) ((1.0 / 255) * 0), (float) ((1.0 / 255) * 0), 1.0f);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
         glfwPollEvents();
@@ -166,6 +175,7 @@ Base::Result Glass::iBeginEngineLoop() {
 
         GUI::GUIHandler::EntityUI(mEntityManager,mComponentManager);
         GUI::GUIHandler::InspectorUI(mEntityManager,mComponentManager);
+        GUI::GUIHandler::LuaConsoleUI(luaDriver.luaState);
 
 
         mRenderSystem.Render(&mWindow, &mEntityManager, &mComponentManager);

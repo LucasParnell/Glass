@@ -17,10 +17,11 @@ add_library("ImGui" STATIC ${IMGUI_SOURCES} ${IMGUI_BACKEND_SOURCES})
 target_include_directories("ImGui" PUBLIC ${IMGUI_PATH} ${IMGUI_PATH}/backends/)
 
 add_library(Glass SHARED
+        lib/Debug/Logging.cc lib/Debug/Logging.h
         external/glad/glad.c external/lodepng/lodepng.cpp
         lib/Base/Glass.cc
         lib/Components/IComponent.h lib/Components/Mesh.h
-        lib/Components/Transform.h lib/Base/Logging.h
+        lib/Components/Transform.h
         lib/Managers/ComponentManager.h lib/Managers/EntityManager.cc
         lib/Managers/EntityManager.h lib/Loaders/MeshLoader.cc lib/Loaders/MeshLoader.h
         lib/Rendering/RenderSystem.cc lib/Rendering/RenderSystem.h lib/Components/Shader.h

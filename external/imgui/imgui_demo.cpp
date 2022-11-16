@@ -63,7 +63,7 @@ Index of this file:
 // [SECTION] Style Editor / ShowStyleEditor()
 // [SECTION] User Guide / ShowUserGuide()
 // [SECTION] Example App: Main Menu Bar / ShowExampleAppMainMenuBar()
-// [SECTION] Example App: Debug Console / ShowExampleAppConsole()
+// [SECTION] Example App: Debug GuiConsole / ShowExampleAppConsole()
 // [SECTION] Example App: Debug Log / ShowExampleAppLog()
 // [SECTION] Example App: Simple Layout / ShowExampleAppLayout()
 // [SECTION] Example App: Property Editor / ShowExampleAppPropertyEditor()
@@ -376,7 +376,7 @@ void ImGui::ShowDemoWindow(bool* p_open)
         {
             IMGUI_DEMO_MARKER("Menu/Examples");
             ImGui::MenuItem("Main menu bar", NULL, &show_app_main_menu_bar);
-            ImGui::MenuItem("Console", NULL, &show_app_console);
+            ImGui::MenuItem("GuiConsole", NULL, &show_app_console);
             ImGui::MenuItem("Log", NULL, &show_app_log);
             ImGui::MenuItem("Simple layout", NULL, &show_app_layout);
             ImGui::MenuItem("Property editor", NULL, &show_app_property_editor);
@@ -1498,11 +1498,11 @@ static void ShowDemoWindowWidgets()
             };
             static char buf1[64];
             ImGui::InputText("Completion", buf1, 64, ImGuiInputTextFlags_CallbackCompletion, Funcs::MyCallback);
-            ImGui::SameLine(); HelpMarker("Here we append \"..\" each time Tab is pressed. See 'Examples>Console' for a more meaningful demonstration of using this callback.");
+            ImGui::SameLine(); HelpMarker("Here we append \"..\" each time Tab is pressed. See 'Examples>GuiConsole' for a more meaningful demonstration of using this callback.");
 
             static char buf2[64];
             ImGui::InputText("History", buf2, 64, ImGuiInputTextFlags_CallbackHistory, Funcs::MyCallback);
-            ImGui::SameLine(); HelpMarker("Here we replace and select text each time Up/Down are pressed. See 'Examples>Console' for a more meaningful demonstration of using this callback.");
+            ImGui::SameLine(); HelpMarker("Here we replace and select text each time Up/Down are pressed. See 'Examples>GuiConsole' for a more meaningful demonstration of using this callback.");
 
             static char buf3[64];
             static int edit_count = 0;
@@ -6642,7 +6642,7 @@ static void ShowExampleMenuFile()
 }
 
 //-----------------------------------------------------------------------------
-// [SECTION] Example App: Debug Console / ShowExampleAppConsole()
+// [SECTION] Example App: Debug GuiConsole / ShowExampleAppConsole()
 //-----------------------------------------------------------------------------
 
 // Demonstrate creating a simple console window, with scrolling, filtering, completion and history.
@@ -6660,7 +6660,7 @@ struct ExampleAppConsole
 
     ExampleAppConsole()
     {
-        IMGUI_DEMO_MARKER("Examples/Console");
+        IMGUI_DEMO_MARKER("Examples/GuiConsole");
         ClearLog();
         memset(InputBuf, 0, sizeof(InputBuf));
         HistoryPos = -1;
@@ -6720,7 +6720,7 @@ struct ExampleAppConsole
         // Here we create a context menu only available from the title bar.
         if (ImGui::BeginPopupContextItem())
         {
-            if (ImGui::MenuItem("Close Console"))
+            if (ImGui::MenuItem("Close GuiConsole"))
                 *p_open = false;
             ImGui::EndPopup();
         }
@@ -6999,7 +6999,7 @@ struct ExampleAppConsole
 static void ShowExampleAppConsole(bool* p_open)
 {
     static ExampleAppConsole console;
-    console.Draw("Example: Console", p_open);
+    console.Draw("Example: GuiConsole", p_open);
 }
 
 //-----------------------------------------------------------------------------
@@ -7141,7 +7141,7 @@ static void ShowExampleAppLog(bool* p_open)
     // Most of the contents of the window will be added by the log.Draw() call.
     ImGui::SetNextWindowSize(ImVec2(500, 400), ImGuiCond_FirstUseEver);
     ImGui::Begin("Example: Log", p_open);
-    IMGUI_DEMO_MARKER("Examples/Log");
+    IMGUI_DEMO_MARKER(" Examples/Log");
     if (ImGui::SmallButton("[Debug] Add 5 entries"))
     {
         static int counter = 0;

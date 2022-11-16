@@ -1,5 +1,5 @@
 #include "Camera.h"
-#include "Base/Logging.h"
+#include "Debug/Logging.h"
 
 using Components::Camera;
 

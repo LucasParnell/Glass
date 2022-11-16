@@ -8,10 +8,8 @@ namespace Base {
 class LuaDriver {
     public:
         GLASS_EXPORT void BeginState();
-
-
-    private:
         lua_State *luaState;
+
 
 
 };
